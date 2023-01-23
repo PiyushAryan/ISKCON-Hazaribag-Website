@@ -112,11 +112,53 @@ h3{
 
 #donation{
     background-color: beige;
+    text-align: center;
 }
+
+.donations-box{
+    padding: 3% 2%;
+}
+
+.style{
+    font-weight: 700;
+    color: rgb(78, 5, 5);
+}
+
+
+.style:hover{
+    background-color: #c78006;
+    
+}
+
+
+
 
 
 
 #cta{
     text-align: center;
+    color: #a44e08;
 }
 
+.footer-img{
+    width: 100%;
+}
+
+#footer{
+    background-color: rgba(79, 20, 20, 0.904);
+    padding: 4%;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 400;
+
+
+}
+
+.sop{
+    display: inline-block;
+}
+
+hr{
+    border-width: 0.2rem;
+    border-color: #220101;
+}
