@@ -96,11 +96,23 @@ h3{
 }
 
 
+.sub-headings{
+    font-family: 'Merienda One', cursive;
+    line-height: 1.5;
+    font-size: 45px;
+    text-align: center;
+    margin-top: 3rem;
+    color: #7c5f07;
+    padding-top: 3%;
+}
+
 .carousel-item{
     padding: 7% 15%;
 }
 
-
+#donation{
+    background-color: beige;
+}
 
 
 
