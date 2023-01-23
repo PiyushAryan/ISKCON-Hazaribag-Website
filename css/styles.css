@@ -1,0 +1,110 @@
+body{
+    font-family: 'Montserrat';
+}
+
+
+.logo{
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+}
+.logo-h{
+    
+    font-size: 19px;
+}
+
+.logo-s{
+    font-size: 12px;
+}
+
+#title{
+    background-color: #6c0791;
+    color: #FED049;
+
+}
+
+
+.container-fluid{
+    padding: 3% 12%;
+}
+
+button{
+    margin: 5% 3% 5% 0;
+}
+
+
+h1 {  font-family: 'Moon Dance', cursive;
+    font-size: 4rem;  
+    line-height: 1.5;  
+    font-weight: 900;}
+
+h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+
+.title-image{
+        width: 48rem;
+        transform: rotate(2deg);
+    }
+
+
+#features{
+    padding: 5% 15%;
+
+}
+
+.features-box{
+    text-align: center;
+    padding: 5%;
+}
+
+
+
+.iskcon-img{
+    margin-bottom: 1rem;
+    width: 350px;
+    height: 250px;
+    border: 5px solid #FED049;
+    align-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+
+}
+
+#DiscoverMore{
+
+    
+    text-align: center;
+    background-color:#6c0791;
+    color: #ffff;
+
+
+}
+
+.guruimg{
+    border-radius: 100%;
+    width: 10%;
+    margin: 20px;
+}
+
+.teachings-guru{
+    font-family: 'Pacifico', cursive;
+    line-height: 1.5;
+    font-size: 3rem;
+}
+
+
+.carousel-item{
+    padding: 7% 15%;
+}
+
+
+
+
+
+#cta{
+    text-align: center;
+}
+
