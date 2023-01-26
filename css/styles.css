@@ -177,7 +177,33 @@ h3{
     display: inline-block;
 }
 
+.icons{
+    margin-left: 55%;
+    
+}
+
+.socials-icons{
+    margin: 20px 10px;
+}
+
 hr{
     border-width: 0.2rem;
     border-color: #220101;
 }
+
+
+@media (max-width: 1020px){
+    
+    #title{
+        text-align: center;
+    }
+
+    .title-image{
+        transform: rotate(0);
+        position: static;
+    }
+}
+
+
+
+    
