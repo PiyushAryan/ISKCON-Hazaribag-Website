@@ -184,8 +184,13 @@ h3{
 
 .socials-icons{
     margin: 20px 10px;
+    
 }
 
+.socials{
+
+    a:hover
+}
 hr{
     border-width: 0.2rem;
     border-color: #220101;
