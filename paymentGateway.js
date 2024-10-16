@@ -2,6 +2,7 @@ function showLoading() {
     document.getElementById("loader").style.display = "block";
 }
 
+// this will hide the loading while the lambda function api fetched
 function hideLoading() {
     document.getElementById("loader").style.display = "none";
 }
@@ -63,7 +64,7 @@ async function initiatePayment() {
 };
 
 document.getElementById("rzp-button1").onclick = function (e) {
-    showLoading();
+
     initiatePayment();
     e.preventDefault();
 };
