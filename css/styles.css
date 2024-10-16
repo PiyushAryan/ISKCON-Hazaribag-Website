@@ -1,5 +1,16 @@
 body {
   font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+  overflow-y: scroll; 
+}
+
+::-webkit-scrollbar {
+  display: none; /* For WebKit browsers (Chrome, Safari) */
+}
+
+body {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
 }
 
 /* Navbar */

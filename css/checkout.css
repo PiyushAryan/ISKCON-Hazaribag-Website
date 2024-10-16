@@ -11,6 +11,13 @@ body {
     color: #fff;
 }
 
+#loader {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    color: red;
+}
+
 
 .main-heading {
     display: flex;               
@@ -24,7 +31,7 @@ body {
 
 
 .form-container {
-    margin-left: 10vh;
+    /* margin-left: 20%; */
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
