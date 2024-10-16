@@ -1,37 +1,111 @@
 body {
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
 }
 
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
 
+/* Container */
+.container-fluid {
+  background-color: transparent;
+  
+}
+
+/* Logo adjustments */
+.img-logo {
+  width: 60px; 
+  height: auto; 
+}
+
+/* Navbar Brand */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
 
 .logo {
-  margin-top: 2rem;
-  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
 }
 
 .logo-h {
-  font-size: 19px;
+  font-size: 20px;
+  color: black;
+  margin: 0;
+
 }
 
 .logo-s {
   font-size: 12px;
+  color: rgba(0, 0, 0, 0.8);
+  margin: 0;
 }
 
+/* Nav links */
+.nav-link {
+  color: black;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+  border: none;
+  background: none;
+}
+
+.navbar-toggler-icon {
+  background-color: black;
+}
+
+
+/* Title Section Styles */
 #title {
-  background-color: #6c0791;
-  color: #fed049;
-  background-image: linear-gradient(to bottom, #6c0791, #feb47b), linear-gradient(to bottom, #6c0791, #ffff);
+  background-image: 
+    linear-gradient(to bottom, #00000080, #000000), 
+    linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0)),
+    url(/images/iskcon-rm.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 20%;
+  color: #ffff;
+  text-align: center;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.main-heading:hover {
+  color: #ffcc00; /* Change to desired hover color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow */
 }
 
 
-.container-fluid {
-  padding: 3% 12%;
-}
+
 
 button {
   margin: 5% 3% 5% 0;
 }
 
+/* Headings */
 h1 {
   font-family: "Moon Dance", cursive;
   font-size: 4rem;
@@ -39,25 +113,20 @@ h1 {
   font-weight: 900;
 }
 
+
+
+
 h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+  
 }
-
-.title-image {
-  width: 48rem;
-  transform: rotate(2deg);
-  background-image: linear-gradient(to right, #ff7e5f, #feb47b); 
-}
-
 
 #features {
   background-color: #feb47b;
   padding: 5% 15%;
-  background-image: linear-gradient(to top, #fff, #feb47b);
+  background-image: linear-gradient(to bottom, #fff, #feb47b);
 }
-
-
 
 .features-box {
   text-align: center;
@@ -120,7 +189,7 @@ h3 {
 }
 
 .style:hover {
-  background-color: #c78006;
+  background-color: #ffffff;
 }
 
 .location {
@@ -141,116 +210,14 @@ h3 {
   width: 100%;
 }
 
-#navigate {
-  background-color: #fff;
-}
-
-.navigate {
-  text-align: center;
-  margin-top: 2rem;
-  font-weight: 400;
-  line-height: 1;
-  width: 420;
-  height: 315;
-}
-
-#footer {
-  background-color: rgba(79, 20, 20, 0.904);
-  padding: 4%;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 400;
-}
-
-.sop {
-  display: inline-block;
-}
-
-.icons {
-  margin-left: 55%;
-}
-
-.socials-icons {
-  margin: 20px 10px;
-}
-
-.socials {
-  a: hover;
-}
-hr {
-  border-width: 0.2rem;
-  border-color: #220101;
-}
-
-@media (max-width: 1020px) {
-  #title {
-    text-align: center;
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  nav {
+    padding: 0.5rem 1rem;
   }
 
-  .title-image {
-    transform: rotate(0);
-    position: static;
+  .nav-link {
+    padding: 1rem;
+    text-align: center;
   }
 }
-
-#footer {
-    background-color: #220101; /* Dark red background color */
-    color: #fff; /* White text color */
-    padding: 20px;
-    text-align: center;
-}
-
-#footer img {
-    width: 100px; /* Adjust size as needed */
-    margin-bottom: 10px;
-}
-
-hr {
-    border-color: #555; /* Darker grey border color */
-    margin: 10px 0;
-}
-
-.icons {
-    margin-bottom: 10px;
-}
-
-.icons a {
-    margin: 0 5px;
-    color: #ccc; /* Light grey social media icon color */
-}
-
-.icons a:hover {
-    color: #fff; /* White color on hover */
-}
-
-.footer-links ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.footer-links ul li {
-    display: inline;
-}
-
-.footer-links ul li:not(:last-child):after {
-    content: "|";
-    margin: 0 5px;
-    color: #777; /* Grey color for the separator */
-}
-
-.footer-links ul li a {
-    color: #ccc; /* Light grey color for links */
-    text-decoration: none;
-}
-
-.footer-links ul li a:hover {
-    color: #fff; /* White color on hover */
-}
-
-.copyright {
-    margin-top: 20px;
-   
-
-
-
-    

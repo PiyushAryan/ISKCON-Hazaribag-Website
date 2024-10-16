@@ -1,177 +1,93 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
-    />
-    <title>ISKCON Hazaribag</title>
-    <link rel="icon" href="https://iskconmumbai.com/favicon-32x32.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISKCON Hazaribag - Sri Sri Radha Madhava </title>
+    <link rel="icon" href="/images/iskcon_logo.svg" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/fd648971f5.js" crossorigin="anonymous"></script>
 
-    <!-- Bootstrap Scripts -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Moon+Dance&family=Montserrat:wght@300;400;500;600;700;800;900&family=Pacifico&family=Merienda+One&display=swap" rel="stylesheet" />
 
-    <!-- font awesome scripts -->
-
-    <script
-      src="https://kit.fontawesome.com/fd648971f5.js"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- Google Fonts Scripts -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merienda+One&family=Pacifico&display=swap"
-      rel="stylesheet"
-    />
-    <!-- CSS Sytlesheets -->
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="css/styles.css" />
-  </head>
+</head>
 
-  <body>
-    <section id="title">
-      <!-- Nav Bar -->
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-          <a class="navbar-brand" href="#home">
-            <img
-              src="images/iskcon_logo.png"
-              alt="Logo"
-              width="110"
-              height="102"
-            />
-            <div class="logo" style="display: inline-block; position: absolute">
-              <h3 class="logo-h">ISKCON Hazaribag</h3>
-              <p class="logo-s">
-                International Society for Krishna Consciousness
-              </p>
-            </div>
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#home">
+      <img class="img-logo" src="https://www.iskconmumbai.com/bi_theme_snippets/static/src/img/logo-black-header.png" alt="Logo" width="110" height="102" />
+      <div class="logo" style="display: inline-block; margin-left: 10px;">
+          <h3 class="logo-h">ISKCON Hazaribag</h3>
+          <p class="logo-s">International Society for Krishna Consciousness</p>
+      </div>
+  </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#footer">Contact</a>
+                  <a class="nav-link" href="#footer">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#donation">Donation</a>
+                  <a class="nav-link" href="#donation">Donation</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#navigate">Live Darshan</a>
+                  <a class="nav-link" href="#navigate">Live Darshan</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#features">Chronicle</a>
+                  <a class="nav-link" href="#features">Chronicle</a>
               </li>
               <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Media
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">News</a></li>
-                  <li><a class="dropdown-item" href="#">Gallery</a></li>
-                  <li><a class="dropdown-item" href="#">Videos</a></li>
-                </ul>
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Media
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">News</a></li>
+                      <li><a class="dropdown-item" href="#">Gallery</a></li>
+                      <li><a class="dropdown-item" href="#">Videos</a></li>
+                  </ul>
               </li>
-            </ul>
-          </div>
-        </nav>
-
-        <!-- Title -->
-        <div class="row">
-          <div class="col-lg-6 col-md-12 col-sm-12">
-            <h1>Chant Hare Krishna and Be Happy</h1>
-
-            <button type="button" class="btn btn-dark btn-lg">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-apple"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z"
-                />
-                <path
-                  d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z"
-                />
-              </svg>
-              Download
-            </button>
-            <button type="button" class="btn btn-outline-light btn-lg">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-google-play"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055l7.294-4.295ZM1 13.396V2.603L6.846 8 1 13.396ZM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27Z"
-                />
-              </svg>
-              Download
-            </button>
-          </div>
-
-          <div class="col-lg-6 col-md-12 col-sm-12">
-            <img
-              class="title-image"
-              src="images/iphone5.png"
-              alt="iphone-mockup"
-            />
-          </div>
-        </div>
+          </ul>
       </div>
+  </nav>
+    <section id="title">
+        <div class="container-fluid">
+            <!-- Title Section -->
+            <div class="row">
+              <h3>Welcome to</h3>
+              <h1 class="main-heading">Sri Sri Radha Madhava</h1>
+              <h6>Temple, ISKCON Hazaribag</h6>
+                <div class="col-lg-4 col-md-10 col-sm-10">
+                  <a href="/checkout.html">
+                    <button type="button" class="btn btn-dark btn-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-apple" viewBox="0 0 16 16">
+                            <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z" />
+                        </svg>
+                        Nitya Seva
+                    </button>
+                  </a>
+                    <a href="#navigate">
+                    <button type="button" class="btn btn-outline-light btn-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google-play" viewBox="0 0 16 16">
+                            <path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055l7.294-4.295ZM1 13.396V2.603L6.846 8 1 13.396ZM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27Z" />
+                        </svg>
+                        Live Darshan
+                    </button>
+                  </a>
+                </div>
+            </div>
+        </div>
     </section>
+
 
     <!-- Chronicle Section -->
 
