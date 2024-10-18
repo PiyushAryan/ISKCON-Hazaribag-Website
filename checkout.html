@@ -13,9 +13,9 @@
 <body> 
     <div class="tform">
     <div class="form-container">
-        <form action="/submit-donation" method="POST">
-            <input class="mb-3" type="text" id="fullname" placeholder="Your Full Name" required>
-            <input class="mb-3" type="tel" id="tel" placeholder="Mobile Number" required>
+        <form action="/checkout-form" method="POST">
+            <input class="mb-3" type="text" id="fullname" placeholder="Your Full Name" required aria-required="true">
+            <input class="mb-3" type="tel" id="tel" placeholder="Mobile Number" required aria-required="true">
             <input class="mb-3" type="number" id="donation-amount" placeholder="Enter amount for donation" name="donation-amount" required />
             <input class="btn btn-primary mb-3" type="submit" id="rzp-button1" value="Donate Now" />
         </form>

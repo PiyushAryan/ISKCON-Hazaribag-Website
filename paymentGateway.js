@@ -36,7 +36,13 @@ async function initiatePayment() {
             image: "https://www.iskconmumbai.com/bi_theme_snippets/static/src/img/logo-black-header.png",
             order_id: order_id, // Use the order ID created by AWS Lambda API
             handler: function (response) {
-                alert("Transaction successful! Thank you for donating");
+                const paymentDetails = {
+                    payment_id: response.razorpay_payment_id,
+                    amount: donationAmount,
+                    status: "Payment Successful",
+                };
+                const queryString = new URLSearchParams(paymentDetails).toString();
+                window.location.href = `confirmation.html?${queryString}`;
             },
             prefill: {
                 name: "John Doe",
@@ -67,4 +73,6 @@ document.getElementById("rzp-button1").onclick = function (e) {
 
     initiatePayment();
     e.preventDefault();
+
+    
 };

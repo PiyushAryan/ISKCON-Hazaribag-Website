@@ -98,7 +98,7 @@ nav {
     url(/images/iskcon-rm.jpg);
   background-size: cover;
   background-position: center;
-  padding: 20%;
+  padding: 18%;
   color: #ffff;
   text-align: center;
   transition: color 0.3s, text-shadow 0.3s;
@@ -113,6 +113,7 @@ nav {
 
 
 button {
+  background-color: #feb47b;
   margin: 5% 3% 5% 0;
 }
 
