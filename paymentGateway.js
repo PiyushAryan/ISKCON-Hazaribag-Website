@@ -20,7 +20,7 @@ async function createOrder(donationAmount) {
 
 
 async function initiatePayment() {
-    let donationAmount = document.getElementById("donation-amount").value || "5000"; // if User provide empty  then Default amount
+    let donationAmount = document.getElementById("donation-amount").value || "5000"; // if User provide empty then Default amount
 
     showLoading();
 
@@ -39,10 +39,10 @@ async function initiatePayment() {
                 const paymentDetails = {
                     payment_id: response.razorpay_payment_id,
                     amount: donationAmount,
-                    status: "Payment Successful",
+                    status: "Payment_Successful",
                 };
                 const queryString = new URLSearchParams(paymentDetails).toString();
-                window.location.href = `confirmation.html?${queryString}`;
+                window.location.href = `confirm.html?${queryString}`;
             },
             prefill: {
                 name: "John Doe",
@@ -71,8 +71,9 @@ async function initiatePayment() {
 
 document.getElementById("rzp-button1").onclick = function (e) {
 
+    // document.getElementById("checkout-form");
+    // if(form)
     initiatePayment();
     e.preventDefault();
 
-    
 };

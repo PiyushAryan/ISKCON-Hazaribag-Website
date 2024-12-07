@@ -19,28 +19,9 @@
         <p><strong>Payment Status:</strong> <span id="status"></span></p>
         <p>If you have any questions, feel free to contact us.</p>
 
-    <button class="btn btn-info">Home</button>
+    <a href="/index.html"><button class="btn btn-info">Home</button></a>
     </div>
 
-    <script>
-        
-        function getQueryParams() {
-            const params = {};
-            const queryString = window.location.search.substring(1);
-            const pairs = queryString.split("&");
-            for (const pair of pairs) {
-                const [key, value] = pair.split("=");
-                params[decodeURIComponent(key)] = decodeURIComponent(value);
-            }
-            return params;
-        }
-                 
-        const paymentDetails = getQueryParams();
-
-      
-        document.getElementById("paymentId").textContent = paymentDetails.payment_id;
-        document.getElementById("amount").textContent = paymentDetails.amount;
-        document.getElementById("status").textContent = paymentDetails.status;
-    </script>
+    <script src="/confirmationPayment.js"></script>
 </body>
 </html>
