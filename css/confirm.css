@@ -58,7 +58,12 @@ nav {
   padding: 20px;
   /* border: 1px solid #ccc;
   border-radius: 5px; */
-  
+
+}
+
+.lead_text {
+  font-family: "Moon Dance", cursive;
+  font-weight: 700;
 }
 
 .img-fluid {
