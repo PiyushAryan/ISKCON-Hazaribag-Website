@@ -20,14 +20,14 @@ async function createOrder(donationAmount) {
 
 
 async function initiatePayment() {
-    let donationAmount = document.getElementById("donation-amount").value || "5000"; // if User provide empty then Default amount
+    const donationAmount = document.getElementById("donation-amount").value || "5000"; // if User provide empty then Default amount
 
     showLoading();
 
     try {
         const order_id = await createOrder(donationAmount);
 
-        var options = {
+        let options = {
             key: "rzp_test_f71au899PKnfY6", // Enter the Key ID generated from Razorpay Dashboard
             amount: donationAmount * 100, // Convert to smallest currency unit
             currency: "INR",
@@ -39,7 +39,7 @@ async function initiatePayment() {
                 const paymentDetails = {
                     payment_id: response.razorpay_payment_id,
                     amount: donationAmount,
-                    status: "Payment_Successful",
+                    status: "Successful",
                 };
                 const queryString = new URLSearchParams(paymentDetails).toString();
                 window.location.href = `confirm.html?${queryString}`;
