@@ -60,6 +60,11 @@ nav {
   border-radius: 5px; */
   
 }
+
+.img-fluid {
+  width: auto;
+  height: auto;
+}
 .title_heading {
   color: #5f2a06;
   font-weight: 700;
