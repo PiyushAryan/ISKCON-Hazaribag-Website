@@ -1,6 +1,6 @@
-# ISKCON Hazaribag Website
+# ISKCON Hazaribag
 
-This is the official website for ISKCON Hazaribag. It is built using HTML, CSS, Bootstrap 5, JavaScript, and integrates the Razorpay payment gateway.
+This is a website for ISKCON Hazaribag. It is built using HTML, CSS, Bootstrap 5, JavaScript, and integrates the Razorpay payment gateway.
 
 ## Features
 
