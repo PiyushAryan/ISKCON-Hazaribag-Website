@@ -3,7 +3,7 @@ import React from 'react';
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
-      <a className="navbar-brand" href="#home">
+      <a className="navbar-brand" href="/">
         <img
           className="img-logo"
           src="https://www.iskconmumbai.com/bi_theme_snippets/static/src/img/logo-black-header.png"
@@ -32,19 +32,19 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
-            <a className="nav-link" href="#footer">Contact</a>
+            <a className="nav-link" href="/#footer">Contact</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#donation">Donation</a>
+            <a className="nav-link" href="/#donation">Donation</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#navigate">Live Darshan</a>
+            <a className="nav-link" href="/#navigate">Live Darshan</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#yatras">Yatras</a>
+            <a className="nav-link" href="/#yatras">Yatras</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#features">Chronicle</a>
+            <a className="nav-link" href="/#features">Chronicle</a>
           </li>
           <li className="nav-item dropdown">
             <a
