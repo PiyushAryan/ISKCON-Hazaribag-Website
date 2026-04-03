@@ -14,6 +14,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import ConfirmPage from './pages/ConfirmPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Disclaimer from './pages/Disclaimer';
+import Prabhupada from './pages/Prabhupada';
 
 // Main homepage assembled from all sections
 function HomePage() {
@@ -44,6 +45,7 @@ function App() {
         <Route path="/confirm" element={<ConfirmPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route path="/founder-acharya" element={<Prabhupada />} />
       </Routes>
     </BrowserRouter>
   );

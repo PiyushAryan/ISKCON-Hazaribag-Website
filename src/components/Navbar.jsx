@@ -54,10 +54,10 @@ const Navbar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Media
+              About
             </a>
             <ul className="dropdown-menu">
-              <li><a className="dropdown-item" href="#">News</a></li>
+              <li><a className="dropdown-item" href="/founder-acharya">Founder-Acharya</a></li>
               <li><a className="dropdown-item" href="#">Gallery</a></li>
               <li><a className="dropdown-item" href="#">Videos</a></li>
             </ul>
