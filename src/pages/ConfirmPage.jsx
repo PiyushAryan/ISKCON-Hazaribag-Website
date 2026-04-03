@@ -7,6 +7,8 @@ const ConfirmPage = () => {
   const payment_id = searchParams.get('payment_id') || '—';
   const amount = searchParams.get('amount') || '—';
   const status = searchParams.get('status') || '—';
+  
+  const certNumber = payment_id !== '—' ? `80G-${payment_id.toUpperCase()}` : '—';
 
   useEffect(() => {
     document.title = 'Thank You — ISKCON Hazaribag';
@@ -218,6 +220,20 @@ const ConfirmPage = () => {
           border-top: 1px solid #f0f0f0;
         }
         .cp-note a { color: #e07b39; text-decoration: none; }
+
+        /* ── Print Styles (Receipt Mode) ── */
+        @media print {
+          .cp-left, .cp-actions { display: none !important; }
+          .cp-root { display: block; background: #fff; }
+          .cp-right { max-width: 100%; padding: 0; }
+          @page { margin: 2cm; }
+          body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+          .cp-icon-ring { border-color: #000; }
+          .cp-icon-ring svg { color: #000; }
+          .cp-kicker, .cp-title, .cp-status { color: #000 !important; }
+          .cp-status-dot { filter: grayscale(1); }
+          .cp-note { text-align: left; }
+        }
       `}</style>
 
       <div className="cp-root">
@@ -255,6 +271,10 @@ const ConfirmPage = () => {
                 <td>{payment_id}</td>
               </tr>
               <tr>
+                <td>Certificate No.</td>
+                <td>{certNumber}</td>
+              </tr>
+              <tr>
                 <td>Amount</td>
                 <td>₹{amount}</td>
               </tr>
@@ -273,7 +293,7 @@ const ConfirmPage = () => {
           {/* Actions */}
           <div className="cp-actions">
             <Link to="/" className="cp-btn-primary">Back to Home</Link>
-            <Link to="/checkout" className="cp-btn-outline">Donate Again</Link>
+            <button onClick={() => window.print()} className="cp-btn-outline">Download Receipt</button>
           </div>
 
           <p className="cp-note">
