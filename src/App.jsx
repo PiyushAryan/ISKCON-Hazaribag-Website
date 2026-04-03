@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -18,9 +18,21 @@ import Prabhupada from './pages/Prabhupada';
 
 // Main homepage assembled from all sections
 function HomePage() {
+  const location = useLocation();
+
   useEffect(() => {
     document.title = 'ISKCON Hazaribag - Sri Sri Radha Madhava';
-  }, []);
+    
+    // Check if we arrived here from another page with a scrollTo request
+    if (location.state && location.state.scrollTo) {
+      setTimeout(() => {
+        const el = document.getElementById(location.state.scrollTo);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100); // tiny timeout ensures DOM is fully rendered before scrolling
+    } else if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
 
   return (
     <>

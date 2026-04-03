@@ -1,9 +1,23 @@
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNav = (e, sectionId) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } });
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
-      <a className="navbar-brand" href="/">
+      <a className="navbar-brand" href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}>
         <img
           className="img-logo"
           src="https://www.iskconmumbai.com/bi_theme_snippets/static/src/img/logo-black-header.png"
@@ -32,19 +46,19 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
-            <a className="nav-link" href="/#footer">Contact</a>
+            <a className="nav-link" href="/" onClick={(e) => handleNav(e, 'footer')}>Contact</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/#donation">Donation</a>
+            <a className="nav-link" href="/" onClick={(e) => handleNav(e, 'donation')}>Donation</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/#navigate">Live Darshan</a>
+            <a className="nav-link" href="/" onClick={(e) => handleNav(e, 'navigate')}>Live Darshan</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/#yatras">Yatras</a>
+            <a className="nav-link" href="/" onClick={(e) => handleNav(e, 'yatras')}>Yatras</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/#features">Chronicle</a>
+            <a className="nav-link" href="/" onClick={(e) => handleNav(e, 'features')}>Chronicle</a>
           </li>
           <li className="nav-item dropdown">
             <a
