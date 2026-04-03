@@ -23,13 +23,13 @@ const yatras = [
     id: 'dwarka',
     name: 'Dwarka',
     desc: 'The glorious kingdom of Lord Krishna by the western sea.',
-    image: 'https://images.unsplash.com/photo-1623912643542-a7d0c75c87de?q=80&w=800&auto=format&fit=crop',
+    image: '/images/m_Dwarka_tv_destination_img_1_l_766_1147.avif',
   },
   {
     id: 'puri',
     name: 'Jagannath Puri',
     desc: 'The majestic abode of the Lord of the Universe, Sri Jagannath.',
-    image: 'https://images.unsplash.com/photo-1549488344-c63d4fdf80f4?q=80&w=800&auto=format&fit=crop',
+    image: '/images/Jagannath-Temple-Puri-–-Complete-Guide-.webp',
   }
 ];
 
