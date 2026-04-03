@@ -11,13 +11,13 @@ const yatras = [
     id: 'vrindavan',
     name: 'Sri Vrindavan Dham',
     desc: 'The eternal playground of Lord Krishna and Srimati Radharani.',
-    image: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=800&auto=format&fit=crop',
+    image: '/images/vrindavan.avif',
   },
   {
     id: 'mathura',
     name: 'Mathura',
     desc: 'The sacred birthplace of Lord Krishna on the banks of Yamuna.',
-    image: 'https://images.unsplash.com/photo-1620216664923-11bb8cba50b3?q=80&w=800&auto=format&fit=crop',
+    image: '/images/Mathura.jpg',
   },
   {
     id: 'dwarka',
