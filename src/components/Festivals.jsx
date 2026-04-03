@@ -6,21 +6,21 @@ const festivals = [
     name: 'Sri Krishna Janmashtami',
     date: 'August / September',
     desc: 'The grand appearance day of Supreme Personality of Godhead, Lord Krishna. Join us for 24-hour kirtan, midnight maha-abhishek, 108 bhoga offering, and a majestic feast.',
-    image: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?q=80&w=1000&auto=format&fit=crop',
+    image: '/images/janmashtami.png',
   },
   {
     id: 'rath-yatra',
     name: 'Jagannath Rath Yatra',
     date: 'June / July',
     desc: 'The ecstatic festival of chariots where the Lord of the Universe comes out of the temple to bless everyone on the streets. Accompanied by loud chanting and dancing.',
-    image: 'https://images.unsplash.com/photo-1622359468504-f584f276c11f?q=80&w=1000&auto=format&fit=crop',
+    image: '/images/rath_yatra.png',
   },
   {
     id: 'radhashtami',
     name: 'Sri Radha Ashtami',
     date: 'September',
     desc: 'The divine appearance day of Srimati Radharani, the eternal consort of Lord Krishna and the queen of Vrindavan. The temple is adorned with fragrant flowers.',
-    image: 'https://images.unsplash.com/photo-1620216664923-11bb8cba50b3?q=80&w=1000&auto=format&fit=crop',
+    image: '/images/radhashtami.png',
   }
 ];
 
