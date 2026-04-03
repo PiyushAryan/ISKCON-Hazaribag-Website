@@ -55,16 +55,16 @@ jobs:
 
           # Upload HTML + PWA files with no-cache so browsers always get the latest
           aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} \
+            --exclude "*" \
             --include "index.html" \
             --include "manifest.webmanifest" \
             --include "sw.js" \
             --include "registerSW.js" \
-            --exclude "*" \
             --cache-control "no-cache, no-store, must-revalidate"
 
           aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} \
-            --include "workbox-*.js" \
             --exclude "*" \
+            --include "workbox-*.js" \
             --cache-control "no-cache, no-store, must-revalidate"
 
       # 7. Invalidate CloudFront cache (skip if you don't use CloudFront)
