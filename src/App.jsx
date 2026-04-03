@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Chronicle from './components/Chronicle';
 import Teachings from './components/Teachings';
+import Yatras from './components/Yatras';
 import LiveDarshan from './components/LiveDarshan';
 import Donation from './components/Donation';
 import Footer from './components/Footer';
@@ -26,6 +27,7 @@ function HomePage() {
       <Hero />
       <Chronicle />
       <Teachings />
+      <Yatras />
       <LiveDarshan />
       <Donation />
       <Footer />

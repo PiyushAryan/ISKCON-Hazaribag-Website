@@ -41,6 +41,9 @@ const Navbar = () => {
             <a className="nav-link" href="#navigate">Live Darshan</a>
           </li>
           <li className="nav-item">
+            <a className="nav-link" href="#yatras">Yatras</a>
+          </li>
+          <li className="nav-item">
             <a className="nav-link" href="#features">Chronicle</a>
           </li>
           <li className="nav-item dropdown">
