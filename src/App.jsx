@@ -9,6 +9,7 @@ import Yatras from './components/Yatras';
 import Festivals from './components/Festivals';
 import LiveDarshan from './components/LiveDarshan';
 import Donation from './components/Donation';
+import Glimpses from './components/Glimpses';
 import Footer from './components/Footer';
 
 import CheckoutPage from './pages/CheckoutPage';
@@ -44,6 +45,7 @@ function HomePage() {
       <Yatras />
       <Festivals />
       <LiveDarshan />
+      <Glimpses />
       <Donation />
       <Footer />
     </>
