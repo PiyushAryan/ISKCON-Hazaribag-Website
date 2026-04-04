@@ -13,65 +13,133 @@ body {
   scrollbar-width: none;
 }
 
-/* Navbar */
-nav {
+/* Navbar Redesign */
+.custom-navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 15px;
+  left: 3%;
+  width: 94%;
   margin: 0;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  color: black;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1.5rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
   z-index: 1000;
 }
 
 .img-logo {
-  width: 60px; 
-  height: auto; 
+  width: 48px;
+  height: auto;
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .logo {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  justify-content: center;
+  margin-left: 14px;
 }
 
 .logo-h {
-  font-size: 20px;
-  color: black;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
   margin: 0;
+  letter-spacing: 0.5px;
 }
 
 .logo-s {
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.8);
+  font-family: "Montserrat", sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   margin: 0;
+  margin-top: 2px;
 }
 
-.nav-link {
-  color: black !important;
-  padding: 0.5rem 0.75rem;
+.custom-nav-link {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #555 !important;
+  padding: 0.4rem 0.6rem !important;
+  margin: 0 0.15rem;
+  transition: color 0.2s ease;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  white-space: nowrap;
 }
 
-.nav-link:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+.custom-nav-link:hover,
+.custom-nav-link.active {
+  color: #000 !important;
 }
 
-.navbar-toggler {
-  border: none;
-  background: none;
+.custom-dropdown-menu {
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(10px) !important;
+  padding: 0.5rem 0 !important;
+  min-width: 200px !important;
+  animation: customDropdownAnim 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  margin-top: 5px !important;
+  transform-origin: top;
+}
+
+.custom-dropdown-item {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 0.6rem 1.5rem;
+  color: #555;
+  transition: background 0.2s ease, color 0.2s ease;
+  display: block;
+  text-decoration: none;
+}
+
+.custom-dropdown-item:hover {
+  background: rgba(0, 0, 0, 0.03);
+  color: #000;
+}
+
+@keyframes customDropdownAnim {
+  0% {
+    opacity: 0;
+    margin-top: 15px !important;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 5px !important;
+  }
+}
+
+.custom-toggler {
+  border: none !important;
+  padding: 0.4rem;
+  background: transparent !important;
+}
+
+.custom-toggler:focus {
+  box-shadow: none !important;
+}
+
+.custom-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.6)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='1.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
 /* Title / Hero Section */
@@ -236,13 +304,49 @@ h3 {
 
 /* Mobile */
 @media (max-width: 768px) {
-  nav {
-    padding: 0.5rem 1rem;
+  .custom-navbar {
+    top: 10px;
+    width: 94%;
+    left: 3%;
+    border-radius: 16px;
+    padding: 0.6rem 1rem;
+  }
+  
+  .custom-navbar-collapse {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0, 0, 0, 0.05);
   }
 
-  .nav-link {
-    padding: 1rem;
-    text-align: center;
+  .custom-nav-link {
+    padding: 0.8rem 1rem !important;
+    text-align: left;
+    margin: 0;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 0;
+  }
+
+  .custom-nav-link:last-child {
+    border-bottom: none;
+  }
+  
+  .custom-dropdown-menu {
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+    margin-top: 0;
+    border: none;
+  }
+  
+  .custom-dropdown-item {
+    text-align: left;
+    padding: 0.8rem 1rem 0.8rem 2rem;
+    font-size: 13px;
   }
 
   .iskcon-img {

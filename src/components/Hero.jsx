@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 const Hero = () => {
+  const wrapperRef = useRef();
   const scrollRef = useRef();
 
   useEffect(() => {
@@ -15,6 +16,35 @@ const Hero = () => {
         el.style.transform = 'translateY(0)';
       });
     }
+
+    // Elegant Scroll Squeeze Effect
+    const handleSqueeze = () => {
+      const hero = wrapperRef.current;
+      if (!hero) return;
+      
+      const scrollY = window.scrollY;
+      const maxScroll = 250; // Made faster: Maxes out in half the scroll distance
+      const progress = Math.min(scrollY / maxScroll, 1);
+      
+      // Pushed up significantly: Maps to exactly 50px squeeze per side
+      const targetSqueezePerSide = 50;  
+      const shrinkFactor = 1 - (progress * ((targetSqueezePerSide * 2) / window.innerWidth));
+      const radius = progress * 48; // Max 48px rounded bottom edge
+      
+      hero.style.transform = `scale(${shrinkFactor})`;
+      hero.style.transformOrigin = 'top center';
+      hero.style.borderRadius = `0 0 ${radius}px ${radius}px`;
+      
+      // Dynamic fade effect added on top of the squeeze
+      const opacityFade = 1 - (progress * 0.75); // Fades down to 25% visibility
+      hero.style.opacity = `${opacityFade}`;
+    };
+
+    window.addEventListener('scroll', handleSqueeze, { passive: true });
+    // Run once to initialize
+    handleSqueeze();
+
+    return () => window.removeEventListener('scroll', handleSqueeze);
   }, []);
 
   return (
@@ -194,7 +224,7 @@ const Hero = () => {
         }
       `}</style>
 
-      <section id="title">
+      <section id="title" ref={wrapperRef} style={{ willChange: 'transform, border-radius', overflow: 'hidden' }}>
         <div className="hero-bg" />
 
         <div className="hero-content" ref={scrollRef}>
