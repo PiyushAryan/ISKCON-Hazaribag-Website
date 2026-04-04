@@ -251,10 +251,6 @@ const Hero = () => {
             <span className="hero-stat-label">Founded</span>
           </div>
           <div className="hero-stat">
-            <span className="hero-stat-num">80G</span>
-            <span className="hero-stat-label">Tax Exempt</span>
-          </div>
-          <div className="hero-stat">
             <span className="hero-stat-num">365</span>
             <span className="hero-stat-label">Days of Seva</span>
           </div>
