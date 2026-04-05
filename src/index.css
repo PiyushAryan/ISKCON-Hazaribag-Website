@@ -304,34 +304,35 @@ h3 {
 
 /* Mobile */
 @media (max-width: 768px) {
-  .custom-navbar {
-    top: 10px;
-    width: 94%;
-    left: 3%;
-    border-radius: 16px;
-    padding: 0.6rem 1rem;
-  }
-  
-  .custom-navbar-collapse {
-    background: white;
-    border-radius: 16px;
-    padding: 1rem 0;
-    margin-top: 1rem;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    max-height: 75vh;
-    overflow-y: auto;
-  }
-
-  .logo-h {
-    font-size: 16px;
-  }
-  .logo-s {
-    display: none;
-  }
-  .img-logo {
-    width: 38px;
-  }
+          .custom-navbar {
+            top: 10px;
+            width: 94%;
+            left: 3%;
+            border-radius: 100px;
+            padding: 0.8rem 1.25rem;
+          }
+          
+          .custom-navbar-collapse {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem 0;
+            margin-top: 1rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            max-height: 75vh;
+            overflow-y: auto;
+          }
+        
+          .logo-h {
+            font-size: 19px;
+            font-weight: 700;
+          }
+          .logo-s {
+            display: none;
+          }
+          .img-logo {
+            width: 52px;
+          }
 
   .custom-nav-link {
     padding: 1rem 1.2rem !important;
