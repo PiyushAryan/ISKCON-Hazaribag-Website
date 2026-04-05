@@ -40,9 +40,7 @@ const Navbar = () => {
           left: 3%;
           width: 94%;
           z-index: 1100;
-          background: rgba(255,255,255,0.96);
-          backdrop-filter: blur(14px);
-          -webkit-backdrop-filter: blur(14px);
+          background: #ffffff;
           box-shadow: 0 8px 32px rgba(0,0,0,0.09);
           border: 1px solid rgba(0,0,0,0.06);
           border-radius: 100px;
