@@ -197,20 +197,22 @@ const Navbar = () => {
         .nb-mobile-menu {
           position: fixed;
           top: 0;
-          left: 0;
           right: 0;
+          bottom: 0;
+          width: 85vw;
+          max-width: 380px;
           background: #fff;
           z-index: 1095;
-          border-radius: 0 0 28px 28px;
-          box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-          padding: 0 0 1.5rem;
-          animation: nbMenuSlide 0.3s cubic-bezier(0.16,1,0.3,1);
+          border-radius: 28px 0 0 28px;
+          box-shadow: -10px 0 60px rgba(0,0,0,0.15);
+          padding: 0 0 2rem;
+          animation: nbMenuSlide 0.35s cubic-bezier(0.16,1,0.3,1);
           overflow-y: auto;
-          max-height: 90vh;
+          max-height: 100vh;
         }
         @keyframes nbMenuSlide {
-          from { transform: translateY(-100%); opacity: 0; }
-          to   { transform: translateY(0); opacity: 1; }
+          from { transform: translateX(100%); opacity: 0; }
+          to   { transform: translateX(0); opacity: 1; }
         }
 
         /* Mobile menu header row */
@@ -218,18 +220,23 @@ const Navbar = () => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 1.2rem 1.5rem;
+          padding: 1.25rem 1.5rem;
           border-bottom: 1px solid rgba(0,0,0,0.06);
+          background: rgba(255,255,255,0.9);
+          backdrop-filter: blur(10px);
+          position: sticky;
+          top: 0;
+          z-index: 2;
         }
 
         /* Mobile nav items */
         .nb-mobile-links {
           list-style: none;
-          margin: 0.75rem 0 0;
+          margin: 1rem 0 0;
           padding: 0 1.25rem;
           display: flex;
           flex-direction: column;
-          gap: 0.35rem;
+          gap: 0.5rem;
         }
         .nb-mobile-link {
           display: block;
