@@ -23,20 +23,19 @@ const Hero = () => {
       if (!hero) return;
       
       const scrollY = window.scrollY;
-      const maxScroll = 250; // Made faster: Maxes out in half the scroll distance
+      const maxScroll = 250;
       const progress = Math.min(scrollY / maxScroll, 1);
       
-      // Pushed up significantly: Maps to exactly 50px squeeze per side
-      const targetSqueezePerSide = 50;  
+      const isMobile = window.innerWidth <= 768;
+      const targetSqueezePerSide = isMobile ? 12 : 50;
       const shrinkFactor = 1 - (progress * ((targetSqueezePerSide * 2) / window.innerWidth));
-      const radius = progress * 48; // Max 48px rounded bottom edge
+      const radius = progress * (isMobile ? 24 : 48);
       
       hero.style.transform = `scale(${shrinkFactor})`;
       hero.style.transformOrigin = 'top center';
       hero.style.borderRadius = `0 0 ${radius}px ${radius}px`;
       
-      // Dynamic fade effect added on top of the squeeze
-      const opacityFade = 1 - (progress * 0.75); // Fades down to 25% visibility
+      const opacityFade = 1 - (progress * (isMobile ? 0.5 : 0.75));
       hero.style.opacity = `${opacityFade}`;
     };
 
