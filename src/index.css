@@ -1,8 +1,11 @@
+@import "tailwindcss";
+
 body {
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
   overflow-y: scroll; 
 }
+
 
 ::-webkit-scrollbar {
   display: none;

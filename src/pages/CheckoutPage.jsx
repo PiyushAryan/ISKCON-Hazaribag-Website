@@ -334,8 +334,15 @@ const CheckoutPage = () => {
             />
 
             <button type="submit" className="co-btn" disabled={loading}>
-              {loading ? (
-                <><span className="spinner-border spinner-border-sm" />Processing…</>
+            {loading ? (
+                <>
+                  <svg style={{ width: 16, height: 16, animation: 'spin 0.7s linear infinite' }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <circle cx="12" cy="12" r="10" strokeOpacity="0.25" />
+                    <path d="M12 2a10 10 0 0 1 10 10" />
+                    <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+                  </svg>
+                  Processing…
+                </>
               ) : 'Donate Now'}
             </button>
           </form>
