@@ -169,6 +169,36 @@ const Teachings = () => {
           background: #e07b39;
           width: 32px;
         }
+
+        /* ── Mobile Responsive ── */
+        @media (max-width: 768px) {
+          #DiscoverMore {
+            padding: 4rem 1.5rem;
+          }
+          .tc-eyebrow {
+            margin-bottom: 2.5rem;
+          }
+          .tc-mark {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+          }
+          .tc-text {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+          }
+          .tc-author-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+          }
+          .tc-divider {
+            display: none;
+          }
+          .tc-dots {
+            margin-left: 0;
+            margin-top: 1rem;
+          }
+        }
       `}</style>
 
       <section id="DiscoverMore">

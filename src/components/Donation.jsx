@@ -176,6 +176,24 @@ const Donation = () => {
           border-top: 1px solid #ebebeb;
           margin: 4rem 0 0;
         }
+
+        /* ── Mobile Responsive ── */
+        @media (max-width: 768px) {
+          #donation {
+            padding: 4rem 1.5rem;
+          }
+          .dn-header {
+            margin-bottom: 2.5rem;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .dn-title {
+            font-size: 2.2rem;
+          }
+          .dn-rule {
+            margin: 3rem 0 0;
+          }
+        }
       `}</style>
 
       <section id="donation">

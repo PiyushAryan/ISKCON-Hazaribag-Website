@@ -180,6 +180,36 @@ const Festivals = () => {
           border-color: #e07b39;
           background: #e07b39;
         }
+
+        /* ── Mobile Responsive ── */
+        @media (max-width: 768px) {
+          #festivals {
+            padding: 4rem 1.5rem;
+          }
+          .f-header {
+            margin-bottom: 2.5rem;
+          }
+          .f-title {
+            font-size: 2.2rem;
+          }
+          .f-container {
+            padding: 0;
+          }
+          .f-grid {
+            gap: 1.5rem;
+          }
+          .f-desc {
+            opacity: 1; /* Keep visible on mobile always as hover isn't natural */
+            transform: translateY(0);
+          }
+          .f-card {
+            aspect-ratio: auto;
+            min-height: 480px; 
+          }
+          .f-content {
+            transform: translateY(0);
+          }
+        }
       `}</style>
 
       <section id="festivals">

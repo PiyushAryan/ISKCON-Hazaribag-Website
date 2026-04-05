@@ -18,15 +18,31 @@ const Glimpses = () => {
 
   return (
     <>
-      <section id="glimpses" style={{ padding: '6rem 2rem', backgroundColor: '#fcfaf8' }}>
+      <style>{`
+        .glimpses-section {
+          padding: 6rem 2rem;
+          background-color: #fcfaf8;
+        }
+        .glimpses-title {
+          font-family: 'Merienda One', cursive;
+          font-size: 2.5rem;
+          text-align: center;
+          color: #a44e08;
+          margin-bottom: 3rem;
+        }
+        @media (max-width: 768px) {
+          .glimpses-section {
+            padding: 4rem 1.5rem;
+          }
+          .glimpses-title {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+          }
+        }
+      `}</style>
+      <section id="glimpses" className="glimpses-section">
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <h2 style={{
-              fontFamily: '"Merienda One", cursive',
-              fontSize: '2.5rem',
-              textAlign: 'center',
-              color: '#a44e08',
-              marginBottom: '3rem'
-          }}>
+          <h2 className="glimpses-title">
             A few glimpses from the ground
           </h2>
           

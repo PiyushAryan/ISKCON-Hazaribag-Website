@@ -149,6 +149,24 @@ const Chronicle = () => {
           border-top: 1px solid #ebebeb;
           margin: 4rem 0 0;
         }
+
+        /* ── Mobile Responsive ── */
+        @media (max-width: 768px) {
+          #features {
+            padding: 4rem 1.5rem;
+          }
+          .cr-header {
+            margin-bottom: 2.5rem;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .cr-title {
+            font-size: 2.2rem;
+          }
+          .cr-rule {
+            margin: 3rem 0 0;
+          }
+        }
       `}</style>
 
       <section id="features">

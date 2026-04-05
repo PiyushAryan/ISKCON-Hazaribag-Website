@@ -347,6 +347,33 @@ const Yatras = () => {
           color: #666;
           line-height: 1.6;
         }
+
+        /* ── Mobile Responsive ── */
+        @media (max-width: 768px) {
+          #yatras {
+            padding: 4rem 0;
+          }
+          .y-header {
+            margin-bottom: 2.5rem;
+            padding: 0 1.5rem;
+          }
+          .y-title {
+            font-size: 2.2rem;
+          }
+          .y-track {
+            padding: 0 1.5rem 1.5rem;
+            gap: 1.2rem;
+          }
+          .y-card {
+            flex: 0 0 280px;
+          }
+          .ym-modal {
+            max-width: calc(100% - 2rem);
+            margin: 1rem;
+            max-height: 90vh;
+            overflow-y: auto;
+          }
+        }
       `}</style>
 
       <section id="yatras">
