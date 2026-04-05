@@ -185,9 +185,10 @@ const Navbar = () => {
           position: fixed;
           inset: 0;
           z-index: 1090;
-          background: rgba(0,0,0,0.25);
-          backdrop-filter: blur(2px);
-          animation: nbOverlayIn 0.2s ease;
+          background: rgba(0, 0, 0, 0.45);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+          animation: nbOverlayIn 0.35s ease;
         }
         @keyframes nbOverlayIn {
           from { opacity: 0; }
@@ -200,15 +201,14 @@ const Navbar = () => {
           right: 0;
           bottom: 0;
           width: 85vw;
-          max-width: 380px;
-          background: #fff;
+          max-width: 400px;
+          background: #ffffff;
           z-index: 1095;
-          border-radius: 28px 0 0 28px;
-          box-shadow: -10px 0 60px rgba(0,0,0,0.15);
-          padding: 0 0 2rem;
-          animation: nbMenuSlide 0.35s cubic-bezier(0.16,1,0.3,1);
-          overflow-y: auto;
-          max-height: 100vh;
+          border-radius: 32px 0 0 32px;
+          box-shadow: -15px 0 80px rgba(0,0,0,0.3);
+          display: flex;
+          flex-direction: column;
+          animation: nbMenuSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         @keyframes nbMenuSlide {
           from { transform: translateX(100%); opacity: 0; }
@@ -220,63 +220,81 @@ const Navbar = () => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 1.25rem 1.5rem;
+          padding: 1.5rem 1.5rem;
           border-bottom: 1px solid rgba(0,0,0,0.06);
-          background: rgba(255,255,255,0.9);
-          backdrop-filter: blur(10px);
-          position: sticky;
-          top: 0;
+          background: rgba(255,255,255,0.95);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
           z-index: 2;
+          border-radius: 32px 0 0 0;
+        }
+
+        /* Mobile menu body wrapper to scroll */
+        .nb-mobile-body {
+          flex: 1;
+          overflow-y: auto;
+          padding: 1rem 1rem 2rem;
+          -webkit-overflow-scrolling: touch;
         }
 
         /* Mobile nav items */
         .nb-mobile-links {
           list-style: none;
-          margin: 1rem 0 0;
-          padding: 0 1.25rem;
+          margin: 0;
+          padding: 0;
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
+          gap: 0.25rem;
         }
         .nb-mobile-link {
           display: block;
           font-family: 'Montserrat', sans-serif;
-          font-size: 17px;
-          font-weight: 600;
+          font-size: 19px;
+          font-weight: 700;
           color: #1a1a1a;
           text-decoration: none;
-          padding: 1rem 1.25rem;
-          border-radius: 14px;
-          background: none;
+          padding: 1.1rem 1.25rem;
+          border-radius: 16px;
+          background: transparent;
           border: none;
           width: 100%;
           text-align: left;
           cursor: pointer;
-          letter-spacing: 0.1px;
-          transition: background 0.2s, color 0.2s;
+          letter-spacing: -0.2px;
+          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s, color 0.15s;
         }
-        .nb-mobile-link:active { background: rgba(224,123,57,0.08); color: #e07b39; }
+        .nb-mobile-link:active { 
+          background: #fff7f2; 
+          color: #e07b39; 
+          transform: scale(0.97); 
+        }
 
         .nb-mobile-sub {
           list-style: none;
-          margin: 0.15rem 0 0;
+          margin: 0.25rem 0 0;
           padding: 0 0 0 1rem;
           display: flex;
           flex-direction: column;
-          gap: 0.2rem;
+          gap: 0.25rem;
+          border-left: 2px solid #f0f0f0;
+          margin-left: 1.25rem;
         }
         .nb-mobile-sub-link {
           display: block;
           font-family: 'Montserrat', sans-serif;
-          font-size: 15px;
-          font-weight: 500;
-          color: #555;
+          font-size: 16px;
+          font-weight: 600;
+          color: #777;
           text-decoration: none;
-          padding: 0.75rem 1.25rem;
-          border-radius: 10px;
-          transition: background 0.2s, color 0.2s;
+          padding: 0.85rem 1.25rem;
+          border-radius: 12px;
+          transition: transform 0.2s, color 0.15s, background 0.15s;
         }
-        .nb-mobile-sub-link:active { background: rgba(224,123,57,0.08); color: #e07b39; }
+        .nb-mobile-sub-link:active { 
+          background: #f7f7f7; 
+          color: #1a1a1a; 
+          transform: scale(0.97);
+        }
 
         .nb-mobile-about-toggle {
           display: flex;
@@ -285,11 +303,39 @@ const Navbar = () => {
           width: 100%;
         }
         .nb-mobile-chevron {
-          font-size: 14px;
-          color: #aaa;
-          transition: transform 0.25s;
+          font-size: 16px;
+          color: #bbb;
+          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .nb-mobile-chevron.open { transform: rotate(180deg); }
+
+        /* Mobile footer */
+        .nb-mobile-footer {
+          padding: 1.5rem;
+          border-top: 1px solid rgba(0,0,0,0.06);
+          background: #fafaf9;
+        }
+        .nb-mobile-cta {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          padding: 1.1rem;
+          background: #e07b39;
+          color: #fff;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          border-radius: 100px;
+          text-decoration: none;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          transition: transform 0.2s, background 0.2s;
+        }
+        .nb-mobile-cta:active {
+          transform: scale(0.97);
+          background: #c96930;
+        }
 
         /* ── Responsive breakpoint ── */
         @media (max-width: 900px) {
@@ -320,7 +366,7 @@ const Navbar = () => {
           />
           <div className="nb-logo-text">
             <span className="nb-logo-h">ISKCON Hazaribag</span>
-            <span className="nb-logo-s">International Society</span>
+            <span className="nb-logo-s">International Society for Krishna Consciousness</span>
           </div>
         </div>
 
@@ -387,39 +433,47 @@ const Navbar = () => {
               </button>
             </div>
 
-            <ul className="nb-mobile-links">
-              <li>
-                <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'features')}>Chronicle</a>
-              </li>
-              <li>
-                <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'yatras')}>Yatras</a>
-              </li>
-              <li>
-                <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'navigate')}>Live Darshan</a>
-              </li>
-              <li>
-                <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'donation')}>Donation</a>
-              </li>
-              <li>
-                <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'footer')}>Contact</a>
-              </li>
-              <li>
-                <button
-                  className="nb-mobile-link nb-mobile-about-toggle"
-                  onClick={() => setAboutOpen(!aboutOpen)}
-                >
-                  <span>About</span>
-                  <span className={`nb-mobile-chevron ${aboutOpen ? 'open' : ''}`}>▾</span>
-                </button>
-                {aboutOpen && (
-                  <ul className="nb-mobile-sub">
-                    <li><a className="nb-mobile-sub-link" href="/founder-acharya" onClick={() => setMenuOpen(false)}>Founder-Acharya</a></li>
-                    <li><a className="nb-mobile-sub-link" href="#" onClick={() => setMenuOpen(false)}>Gallery</a></li>
-                    <li><a className="nb-mobile-sub-link" href="#" onClick={() => setMenuOpen(false)}>Videos</a></li>
-                  </ul>
-                )}
-              </li>
-            </ul>
+            <div className="nb-mobile-body">
+              <ul className="nb-mobile-links">
+                <li>
+                  <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'features')}>Chronicle</a>
+                </li>
+                <li>
+                  <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'yatras')}>Yatras</a>
+                </li>
+                <li>
+                  <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'navigate')}>Live Darshan</a>
+                </li>
+                <li>
+                  <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'donation')}>Donation</a>
+                </li>
+                <li>
+                  <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'footer')}>Contact</a>
+                </li>
+                <li>
+                  <button
+                    className="nb-mobile-link nb-mobile-about-toggle"
+                    onClick={() => setAboutOpen(!aboutOpen)}
+                  >
+                    <span>About</span>
+                    <span className={`nb-mobile-chevron ${aboutOpen ? 'open' : ''}`}>▾</span>
+                  </button>
+                  {aboutOpen && (
+                    <ul className="nb-mobile-sub">
+                      <li><a className="nb-mobile-sub-link" href="/founder-acharya" onClick={() => setMenuOpen(false)}>Founder-Acharya</a></li>
+                      <li><a className="nb-mobile-sub-link" href="#" onClick={() => setMenuOpen(false)}>Gallery</a></li>
+                      <li><a className="nb-mobile-sub-link" href="#" onClick={() => setMenuOpen(false)}>Videos</a></li>
+                    </ul>
+                  )}
+                </li>
+              </ul>
+            </div>
+
+            <div className="nb-mobile-footer">
+              <a href="/checkout" className="nb-mobile-cta" onClick={() => setMenuOpen(false)}>
+                🙏 Donate Now
+              </a>
+            </div>
           </div>
         </>
       )}
