@@ -61,7 +61,7 @@ const Navbar = () => {
           cursor: pointer;
         }
         .nb-logo-img {
-          width: 40px;
+          width: 48px;
           height: auto;
           flex-shrink: 0;
         }
@@ -72,21 +72,22 @@ const Navbar = () => {
         }
         .nb-logo-h {
           font-family: 'Montserrat', sans-serif;
-          font-size: 15px;
-          font-weight: 700;
+          font-size: 16px;
+          font-weight: 600;
           color: #111;
           margin: 0;
-          letter-spacing: 0.2px;
+          letter-spacing: 0.5px;
           white-space: nowrap;
         }
         .nb-logo-s {
           font-family: 'Montserrat', sans-serif;
           font-size: 9px;
           font-weight: 400;
-          color: #888;
+          color: #666;
           text-transform: uppercase;
-          letter-spacing: 0.8px;
+          letter-spacing: 1px;
           margin: 0;
+          margin-top: 2px;
         }
 
         /* ── Desktop nav links ── */
@@ -100,12 +101,13 @@ const Navbar = () => {
         }
         .nb-link {
           font-family: 'Montserrat', sans-serif;
-          font-size: 12px;
-          font-weight: 600;
+          font-size: 13px;
+          font-weight: 500;
           text-transform: uppercase;
           letter-spacing: 0.5px;
           color: #555;
-          padding: 0.45rem 0.7rem;
+          padding: 0.4rem 0.6rem;
+          margin: 0 0.15rem;
           border-radius: 100px;
           text-decoration: none;
           background: none;
@@ -138,12 +140,10 @@ const Navbar = () => {
         .nb-dd-item {
           display: block;
           font-family: 'Montserrat', sans-serif;
-          font-size: 12px;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.4px;
+          font-size: 13px;
+          font-weight: 500;
+          padding: 0.6rem 1.5rem;
           color: #555;
-          padding: 0.65rem 1.25rem;
           text-decoration: none;
           transition: background 0.15s, color 0.15s;
         }
@@ -289,9 +289,9 @@ const Navbar = () => {
           .nb-links { display: none; }
           .nb-ham   { display: flex; }
           .nb-logo-s { display: none; }
-          .nb { padding: 0.7rem 1.1rem; }
-          .nb-logo-img { width: 44px; }
-          .nb-logo-h { font-size: 17px; }
+          .nb { padding: 0.8rem 1.25rem; }
+          .nb-logo-img { width: 52px; }
+          .nb-logo-h { font-size: 19px; font-weight: 700; letter-spacing: 0; }
         }
         @media (min-width: 901px) {
           .nb-mobile-overlay,
