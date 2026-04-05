@@ -184,10 +184,10 @@ const Festivals = () => {
         /* ── Mobile Responsive ── */
         @media (max-width: 768px) {
           #festivals {
-            padding: 4rem 1.5rem;
+            padding: 3rem 1.25rem;
           }
           .f-header {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
           }
           .f-title {
             font-size: 2.2rem;
@@ -205,9 +205,18 @@ const Festivals = () => {
           .f-card {
             aspect-ratio: auto;
             min-height: 480px; 
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
           }
           .f-content {
             transform: translateY(0);
+          }
+          .f-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 0.9rem;
+            text-align: center;
+            background: rgba(0,0,0,0.3);
           }
         }
       `}</style>

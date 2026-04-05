@@ -173,30 +173,34 @@ const Teachings = () => {
         /* ── Mobile Responsive ── */
         @media (max-width: 768px) {
           #DiscoverMore {
-            padding: 4rem 1.5rem;
+            padding: 3rem 1.25rem;
           }
           .tc-eyebrow {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
           }
           .tc-mark {
-            font-size: 4rem;
+            font-size: 3rem;
             margin-bottom: 0.5rem;
           }
           .tc-text {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
           }
           .tc-author-row {
             flex-direction: column;
             align-items: flex-start;
             gap: 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 1.25rem;
           }
           .tc-divider {
             display: none;
           }
           .tc-dots {
             margin-left: 0;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
           }
         }
       `}</style>

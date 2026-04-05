@@ -180,15 +180,31 @@ const Donation = () => {
         /* ── Mobile Responsive ── */
         @media (max-width: 768px) {
           #donation {
-            padding: 4rem 1.5rem;
+            padding: 3rem 1.25rem;
+            background: #ebebeb;
           }
           .dn-header {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             flex-direction: column;
             align-items: flex-start;
           }
           .dn-title {
             font-size: 2.2rem;
+          }
+          .dn-grid {
+            gap: 1.5rem;
+            background: transparent;
+          }
+          .dn-card {
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.03);
+          }
+          .dn-btn {
+            width: 100%;
+            justify-content: center;
+            padding: 1rem;
+            font-size: 0.9rem;
           }
           .dn-rule {
             margin: 3rem 0 0;

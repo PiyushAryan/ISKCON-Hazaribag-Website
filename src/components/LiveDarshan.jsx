@@ -45,72 +45,25 @@ const EmptyState = () => (
 );
 
 const EventCard = ({ date, month, title, time, location, tag }) => (
-  <div style={{
-    background: '#fff',
-    display: 'flex',
-    gap: '1.5rem',
-    alignItems: 'flex-start',
-    padding: '1.75rem',
-    borderBottom: '1px solid #f0f0f0',
-    transition: 'background 0.2s',
-  }}
-  onMouseEnter={e => e.currentTarget.style.background = '#fafaf9'}
-  onMouseLeave={e => e.currentTarget.style.background = '#fff'}
-  >
+  <div className="ev-card">
     {/* Date block */}
-    <div style={{
-      flexShrink: 0,
-      width: '54px',
-      textAlign: 'center',
-      paddingTop: '2px',
-    }}>
-      <div style={{
-        fontSize: '1.6rem',
-        fontWeight: 800,
-        color: '#1a1a1a',
-        lineHeight: 1,
-        fontFamily: 'Montserrat, sans-serif',
-      }}>{date}</div>
-      <div style={{
-        fontSize: '0.65rem',
-        fontWeight: 700,
-        letterSpacing: '0.12em',
-        textTransform: 'uppercase',
-        color: '#e07b39',
-        marginTop: '2px',
-      }}>{month}</div>
+    <div className="ev-date-block">
+      <div className="ev-date">{date}</div>
+      <div className="ev-month">{month}</div>
     </div>
 
     {/* Vertical rule */}
-    <div style={{ width: '1px', background: '#ebebeb', alignSelf: 'stretch', flexShrink: 0 }} />
+    <div className="ev-card-rule" />
 
     {/* Content */}
-    <div style={{ flex: 1 }}>
-      <span style={{
-        fontSize: '0.62rem',
-        fontWeight: 700,
-        letterSpacing: '0.14em',
-        textTransform: 'uppercase',
-        color: '#e07b39',
-        marginBottom: '0.4rem',
-        display: 'block',
-      }}>{tag}</span>
-      <h3 style={{
-        fontFamily: 'Montserrat, sans-serif',
-        fontSize: '1rem',
-        fontWeight: 700,
-        color: '#1a1a1a',
-        margin: '0 0 0.5rem',
-      }}>{title}</h3>
-      <div style={{
-        display: 'flex',
-        gap: '1.2rem',
-        flexWrap: 'wrap',
-      }}>
-        <span style={{ fontSize: '0.78rem', color: '#aaa', fontFamily: 'Montserrat, sans-serif' }}>
+    <div className="ev-content">
+      <span className="ev-tag">{tag}</span>
+      <h3 className="ev-card-title">{title}</h3>
+      <div className="ev-meta">
+        <span>
           🕐 {time}
         </span>
-        <span style={{ fontSize: '0.78rem', color: '#aaa', fontFamily: 'Montserrat, sans-serif' }}>
+        <span>
           📍 {location}
         </span>
       </div>
@@ -169,18 +122,102 @@ const LiveDarshan = () => {
           margin: 4rem 0 0;
         }
 
+        /* ── Event Card Classes ── */
+        .ev-card {
+          background: #fff;
+          display: flex;
+          gap: 1.5rem;
+          align-items: flex-start;
+          padding: 1.75rem;
+          border-bottom: 1px solid #f0f0f0;
+          transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .ev-card:hover {
+          background: #fafaf9;
+        }
+        .ev-date-block {
+          flex-shrink: 0;
+          width: 54px;
+          text-align: center;
+          padding-top: 2px;
+        }
+        .ev-date {
+          font-size: 1.6rem;
+          font-weight: 800;
+          color: #1a1a1a;
+          line-height: 1;
+          font-family: 'Montserrat', sans-serif;
+        }
+        .ev-month {
+          font-size: 0.65rem;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #e07b39;
+          margin-top: 2px;
+        }
+        .ev-card-rule {
+          width: 1px;
+          background: #ebebeb;
+          align-self: stretch;
+          flex-shrink: 0;
+        }
+        .ev-content {
+          flex: 1;
+        }
+        .ev-tag {
+          font-size: 0.62rem;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #e07b39;
+          margin-bottom: 0.4rem;
+          display: block;
+        }
+        .ev-card-title {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 1rem;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin: 0 0 0.5rem;
+        }
+        .ev-meta {
+          display: flex;
+          gap: 1.2rem;
+          flex-wrap: wrap;
+        }
+        .ev-meta span {
+          font-size: 0.78rem;
+          color: #aaa;
+          font-family: 'Montserrat', sans-serif;
+        }
+
         /* ── Mobile Responsive ── */
         @media (max-width: 768px) {
           #navigate {
-            padding: 4rem 1.5rem;
+            padding: 3rem 1.25rem;
+            background: #faf9f7;
           }
           .ev-header {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             flex-direction: column;
             align-items: flex-start;
           }
           .ev-title {
             font-size: 2.2rem;
+          }
+          .ev-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.04);
+            border-bottom: none;
+            flex-direction: row;
+            padding: 1.25rem;
+            gap: 1.25rem;
+            margin-bottom: 1rem;
+          }
+          .ev-card:last-child {
+            margin-bottom: 0;
           }
           .ev-rule {
             margin: 3rem 0 0;

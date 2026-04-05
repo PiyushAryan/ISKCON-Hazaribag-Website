@@ -153,15 +153,24 @@ const Chronicle = () => {
         /* ── Mobile Responsive ── */
         @media (max-width: 768px) {
           #features {
-            padding: 4rem 1.5rem;
+            padding: 3rem 1.25rem;
+            background: #faf9f7;
           }
           .cr-header {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             flex-direction: column;
             align-items: flex-start;
           }
           .cr-title {
             font-size: 2.2rem;
+          }
+          .cr-grid {
+            gap: 1.5rem;
+          }
+          .cr-card {
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.03);
           }
           .cr-rule {
             margin: 3rem 0 0;
