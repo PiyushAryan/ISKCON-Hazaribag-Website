@@ -363,7 +363,7 @@ const Navbar = () => {
           <li><a className="nb-link" href="/" onClick={(e) => handleNav(e, 'features')}>Chronicle</a></li>
           <li><a className="nb-link" href="/" onClick={(e) => handleNav(e, 'yatras')}>Yatras</a></li>
           <li><a className="nb-link" href="/" onClick={(e) => handleNav(e, 'navigate')}>Live Darshan</a></li>
-          <li><a className="nb-link" href="/" onClick={(e) => handleNav(e, 'donation')}>Donation</a></li>
+          <li><a className="nb-link" href="/checkout">Donation</a></li>
           <li><a className="nb-link" href="/" onClick={(e) => handleNav(e, 'footer')}>Contact</a></li>
           <li className="nb-dd-wrap"
             onMouseEnter={() => setAboutOpen(true)}
@@ -433,7 +433,7 @@ const Navbar = () => {
                   <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'navigate')}>Live Darshan</a>
                 </li>
                 <li>
-                  <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'donation')}>Donation</a>
+                  <a className="nb-mobile-link" href="/checkout" onClick={() => setMenuOpen(false)}>Donation</a>
                 </li>
                 <li>
                   <a className="nb-mobile-link" href="/" onClick={(e) => handleNav(e, 'footer')}>Contact</a>
