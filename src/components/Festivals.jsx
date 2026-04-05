@@ -230,16 +230,13 @@ const Festivals = () => {
 
           <div className="f-grid">
             {festivals.map((fest) => (
-              <a href="/#donation" className="f-card" key={fest.id}>
+              <a href="/checkout" className="f-card" key={fest.id}>
                 <img src={fest.image} alt={fest.name} className="f-img" loading="lazy" />
                 <div className="f-content">
                   <span className="f-date">{fest.date}</span>
                   <h3 className="f-name">{fest.name}</h3>
                   <p className="f-desc">{fest.desc}</p>
-                  <button className="f-btn" onClick={() => {
-                    // Let the parent <a> handle the navigation, or intercept if we want
-                    // a modal. For now, it just goes to #donation to sponsor the festival.
-                  }}>
+                  <button className="f-btn">
                     Sponsor Festival
                   </button>
                 </div>
