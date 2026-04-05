@@ -182,7 +182,7 @@ const Navbar = () => {
           display: none;
           position: fixed;
           inset: 0;
-          z-index: 1090;
+          z-index: 1200;
           background: rgba(0, 0, 0, 0.2);
           backdrop-filter: blur(4px);
           -webkit-backdrop-filter: blur(4px);
@@ -201,7 +201,7 @@ const Navbar = () => {
           width: 85vw;
           max-width: 320px;
           background: #ffffff;
-          z-index: 1095;
+          z-index: 1205;
           box-shadow: -4px 0 24px rgba(0,0,0,0.06);
           display: flex;
           flex-direction: column;
