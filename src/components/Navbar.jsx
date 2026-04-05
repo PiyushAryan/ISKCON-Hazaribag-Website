@@ -328,11 +328,11 @@ const Navbar = () => {
         /* ── Responsive breakpoint ── */
         @media (max-width: 900px) {
           .nb-links { display: none; }
-          .nb-ham   { display: flex; width: 38px; height: 38px; }
+          .nb-ham   { display: flex; width: 42px; height: 42px; }
           .nb-logo-s { display: none; }
-          .nb { padding: 0.45rem 1rem; }
-          .nb-logo-img { width: 36px; }
-          .nb-logo-h { font-size: 15px; font-weight: 600; letter-spacing: 0.2px; }
+          .nb { padding: 0.6rem 1.15rem; }
+          .nb-logo-img { width: 44px; }
+          .nb-logo-h { font-size: 17px; font-weight: 650; letter-spacing: 0.1px; }
         }
         @media (min-width: 901px) {
           .nb-mobile-overlay,
