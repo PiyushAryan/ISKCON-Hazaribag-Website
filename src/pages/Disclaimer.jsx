@@ -39,7 +39,7 @@ const Disclaimer = () => {
       </p>
       <p>
         To claim your 80G receipt, please email your full legal name, postal address with PIN code, PAN number, and transaction reference to{' '}
-        <a href="mailto:info@iskconhzb.com">info@iskconhzb.com</a>. We recommend consulting a qualified tax advisor for advice specific to your situation.
+        <a href="mailto:iskconhazaribagh1@gmail.com">iskconhazaribagh1@gmail.com</a>. We recommend consulting a qualified tax advisor for advice specific to your situation.
       </p>
 
       <h2>4. Third-Party Payment Gateway</h2>
@@ -71,8 +71,8 @@ const Disclaimer = () => {
       <h2>9. Contact</h2>
       <p>
         For any questions or concerns regarding this disclaimer, please contact us at:<br />
-        <a href="mailto:info@iskconhzb.com">info@iskconhzb.com</a><br />
-        ISKCON Hazaribag, New Okni Talab, Lohsinghna Road, Hazaribag — 825301, Jharkhand, India.
+        <a href="mailto:iskconhazaribagh1@gmail.com">iskconhazaribagh1@gmail.com</a><br />
+        ISKCON Hazaribag, Vanshidhar Colony, PTC Chowk, Hazaribagh — 825301, Jharkhand, India.
       </p>
     </LegalPage>
   );

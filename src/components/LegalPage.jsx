@@ -47,7 +47,7 @@ const LegalPage = ({ title, eyebrow, lastUpdated, children }) => {
           text-decoration: none;
           transition: color 0.2s;
         }
-        .lp-back:hover { color: #e07b39; }
+        .lp-back:hover { color: #582739; }
 
         /* ── Header ── */
         .lp-header {
@@ -61,7 +61,7 @@ const LegalPage = ({ title, eyebrow, lastUpdated, children }) => {
           font-weight: 700;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #e07b39;
+          color: #582739;
           margin-bottom: 0.75rem;
           display: block;
         }
@@ -115,13 +115,14 @@ const LegalPage = ({ title, eyebrow, lastUpdated, children }) => {
           margin-bottom: 0.4rem;
         }
         .lp-body a {
-          color: #e07b39;
+          color: #582739;
+          font-weight: 600;
           text-decoration: none;
         }
         .lp-body a:hover { text-decoration: underline; }
         .lp-highlight {
-          background: #fff7f2;
-          border-left: 3px solid #e07b39;
+          background: rgba(246, 212, 123, 0.15); /* Soft gold tint */
+          border-left: 3px solid #582739;
           padding: 1rem 1.25rem;
           border-radius: 0 4px 4px 0;
           margin: 1.5rem 0;

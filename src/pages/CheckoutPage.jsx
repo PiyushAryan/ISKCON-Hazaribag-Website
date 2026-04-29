@@ -50,7 +50,7 @@ const CheckoutPage = () => {
           contact: telRef.current.value,
         },
         notes: { address: 'ISKCON Hazaribag, Jharkhand' },
-        theme: { color: '#e07b39' },
+        theme: { color: '#582739' },
       };
       new window.Razorpay(options).open();
     } catch (err) {
@@ -175,7 +175,7 @@ const CheckoutPage = () => {
           margin-bottom: 2rem;
         }
         .co-input::placeholder { color: #ccc; }
-        .co-input:focus { border-color: #e07b39; }
+        .co-input:focus { border-color: #582739; }
 
         /* ── Preset chips ── */
         .co-chips {
@@ -198,13 +198,13 @@ const CheckoutPage = () => {
           text-align: center;
         }
         .co-chip:hover {
-          border-color: #e07b39;
-          color: #e07b39;
+          border-color: #582739;
+          color: #582739;
         }
         .co-chip.active {
-          border-color: #e07b39;
-          background: #fff7f2;
-          color: #e07b39;
+          border-color: #582739;
+          background: rgba(246, 212, 123, 0.15); /* Soft gold tint */
+          color: #582739;
         }
 
         /* ── Submit ── */
@@ -212,7 +212,7 @@ const CheckoutPage = () => {
           width: 100%;
           padding: 0.9rem;
           margin-top: 2rem;
-          background: #e07b39;
+          background: #582739;
           border: none;
           border-radius: 6px;
           font-family: 'Montserrat', sans-serif;
@@ -220,16 +220,17 @@ const CheckoutPage = () => {
           font-size: 0.9rem;
           letter-spacing: 0.08em;
           text-transform: uppercase;
-          color: #fff;
+          color: #fff7c2;
           cursor: pointer;
-          transition: background 0.2s, transform 0.15s;
+          transition: background 0.2s, color 0.2s, transform 0.15s;
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 0.5rem;
         }
         .co-btn:hover:not(:disabled) {
-          background: #c96930;
+          background: #f6d47b;
+          color: #4d2030;
           transform: translateY(-1px);
         }
         .co-btn:disabled { opacity: 0.65; cursor: not-allowed; }
@@ -242,19 +243,20 @@ const CheckoutPage = () => {
           line-height: 1.7;
           text-align: center;
         }
-        .co-meta a { color: #e07b39; text-decoration: none; }
+        .co-meta a { color: #582739; text-decoration: none; font-weight: 600; }
         .co-back {
-          display: block;
+          display: inline-block;
           text-align: center;
           margin-top: 1.5rem;
-          font-size: 0.78rem;
-          color: #ccc;
+          padding: 0.5rem;
+          font-size: 0.88rem;
+          color: #bbb;
           text-decoration: none;
-          font-weight: 500;
+          font-weight: 600;
           letter-spacing: 0.04em;
-          transition: color 0.2s;
+          transition: color 0.2s, transform 0.2s;
         }
-        .co-back:hover { color: #555; }
+        .co-back:hover { color: #582739; transform: translateX(-2px); }
         .co-secure {
           display: flex;
           align-items: center;
@@ -348,7 +350,7 @@ const CheckoutPage = () => {
           </form>
 
           <div className="co-secure">
-            <svg width="11" height="11" fill="#4caf50" viewBox="0 0 16 16">
+            <svg width="11" height="11" fill="#582739" viewBox="0 0 16 16">
               <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
             </svg>
             Secured by Razorpay
@@ -357,7 +359,7 @@ const CheckoutPage = () => {
           <p className="co-meta">
             80G tax exemption available · Cert. Ref. XXXXXXXPF20219<br />
             Email PAN + address for receipt:{' '}
-            <a href="mailto:info@iskconhzb.com">info@iskconhzb.com</a>
+            <a href="mailto:iskconhazaribagh1@gmail.com">iskconhazaribagh1@gmail.com</a>
           </p>
 
           <Link to="/" className="co-back">← Back to Home</Link>

@@ -5,11 +5,9 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Chronicle from './components/Chronicle';
 import Teachings from './components/Teachings';
-import Yatras from './components/Yatras';
 import Festivals from './components/Festivals';
 import LiveDarshan from './components/LiveDarshan';
 import Donation from './components/Donation';
-import Glimpses from './components/Glimpses';
 import Footer from './components/Footer';
 
 import CheckoutPage from './pages/CheckoutPage';
@@ -17,6 +15,8 @@ import ConfirmPage from './pages/ConfirmPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Disclaimer from './pages/Disclaimer';
 import Prabhupada from './pages/Prabhupada';
+import Yatras from './pages/Yatras';
+import Contact from './pages/Contact';
 
 // Main homepage assembled from all sections
 function HomePage() {
@@ -40,12 +40,10 @@ function HomePage() {
     <>
       <Navbar />
       <Hero />
-      <Chronicle />
-      <Teachings />
-      <Yatras />
       <Festivals />
       <LiveDarshan />
-      <Glimpses />
+      <Chronicle />
+      <Teachings />
       <Donation />
       <Footer />
     </>
@@ -62,6 +60,8 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/founder-acharya" element={<Prabhupada />} />
+        <Route path="/yatras" element={<Yatras />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );

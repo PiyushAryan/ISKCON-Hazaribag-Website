@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
       <ul>
         <li><strong>Personal details:</strong> Full name and mobile number (entered during the donation checkout).</li>
         <li><strong>Payment information:</strong> Transaction details processed securely through Razorpay. We do not store card or bank account details on our servers.</li>
-        <li><strong>Communication data:</strong> Email address if you contact us at <a href="mailto:info@iskconhzb.com">info@iskconhzb.com</a> for a donation receipt or inquiry.</li>
+        <li><strong>Communication data:</strong> Email address if you contact us at <a href="mailto:iskconhazaribagh1@gmail.com">iskconhazaribagh1@gmail.com</a> for a donation receipt or inquiry.</li>
         <li><strong>Usage data:</strong> Standard web server logs (IP address, browser type, pages visited) for site security and performance — not linked to your identity.</li>
       </ul>
 
@@ -62,7 +62,7 @@ const PrivacyPolicy = () => {
       </ul>
       <p>
         To exercise any of these rights, please write to us at{' '}
-        <a href="mailto:info@iskconhzb.com">info@iskconhzb.com</a>.
+        <a href="mailto:iskconhazaribagh1@gmail.com">iskconhazaribagh1@gmail.com</a>.
       </p>
 
       <h2>7. Security</h2>
@@ -78,8 +78,8 @@ const PrivacyPolicy = () => {
       <h2>9. Contact Us</h2>
       <p>
         If you have any questions about this Privacy Policy, please contact us at:<br />
-        <a href="mailto:info@iskconhzb.com">info@iskconhzb.com</a><br />
-        ISKCON Hazaribag, New Okni Talab, Lohsinghna Road, Hazaribag — 825301, Jharkhand, India.
+        <a href="mailto:iskconhazaribagh1@gmail.com">iskconhazaribagh1@gmail.com</a><br />
+        ISKCON Hazaribag, Vanshidhar Colony, PTC Chowk, Hazaribagh — 825301, Jharkhand, India.
       </p>
     </LegalPage>
   );

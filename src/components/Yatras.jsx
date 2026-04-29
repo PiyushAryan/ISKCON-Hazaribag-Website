@@ -63,8 +63,8 @@ const Yatras = () => {
     <>
       <style>{`
         #yatras {
-          background: #fff;
-          padding: 6rem 0;
+          background: transparent;
+          padding: 4rem 0;
           overflow: hidden;
         }
 
@@ -76,20 +76,21 @@ const Yatras = () => {
         }
 
         .y-eyebrow {
-          font-size: 0.68rem;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 0.75rem;
           font-weight: 700;
-          letter-spacing: 0.18em;
+          letter-spacing: 0.25em;
           text-transform: uppercase;
-          color: #e07b39;
+          color: #d4a017;
           margin-bottom: 0.75rem;
           display: block;
         }
 
         .y-title {
-          font-family: 'Merienda One', cursive;
-          font-size: clamp(2.2rem, 4vw, 3rem);
-          font-weight: 400;
-          color: #1a1a1a;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 800;
+          font-size: clamp(2.2rem, 4vw, 3.2rem);
+          color: #582739;
           margin: 0;
           line-height: 1.15;
         }
@@ -152,8 +153,8 @@ const Yatras = () => {
 
         .y-name {
           font-family: 'Montserrat', sans-serif;
-          font-size: 1.1rem;
-          font-weight: 700;
+          font-size: 1.15rem;
+          font-weight: 800;
           color: #1a1a1a;
           margin: 0 0 0.5rem;
           letter-spacing: -0.02em;
@@ -161,29 +162,34 @@ const Yatras = () => {
 
         .y-desc {
           font-family: 'Montserrat', sans-serif;
-          font-size: 0.82rem;
-          color: #666;
+          font-size: 0.85rem;
+          color: #555;
           line-height: 1.6;
-          margin: 0 0 1rem;
+          margin: 0 0 1.5rem;
         }
 
         .y-btn {
           font-family: 'Montserrat', sans-serif;
-          font-size: 0.72rem;
+          font-size: 0.75rem;
           font-weight: 700;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #e07b39;
+          color: #582739;
           background: none;
-          border: none;
-          padding: 0;
+          border: 1px solid #582739;
+          border-radius: 4px;
+          padding: 0.6rem 1rem;
           cursor: pointer;
           display: inline-flex;
           align-items: center;
           gap: 0.4rem;
-          transition: gap 0.2s;
+          transition: background 0.2s, color 0.2s, gap 0.2s;
         }
-        .y-btn:hover { gap: 0.6rem; }
+        .y-btn:hover { 
+          gap: 0.6rem; 
+          background: #582739;
+          color: #fff;
+        }
 
         /* ── Modal overlay ── */
         .ym-overlay {
@@ -207,6 +213,7 @@ const Yatras = () => {
 
         .ym-modal {
           background: #fff;
+          border: none;
           width: 100%;
           max-width: 440px;
           border-radius: 8px;
@@ -225,7 +232,7 @@ const Yatras = () => {
           position: absolute;
           top: 1rem;
           right: 1rem;
-          background: rgba(0,0,0,0.05);
+          background: rgba(0, 0, 0, 0.05);
           border: none;
           width: 32px;
           height: 32px;
@@ -239,13 +246,14 @@ const Yatras = () => {
           justify-content: center;
           transition: background 0.2s, color 0.2s;
         }
-        .ym-close:hover { background: rgba(0,0,0,0.1); color: #000; }
+        .ym-close:hover { background: rgba(0, 0, 0, 0.1); color: #000; }
 
         .ym-header {
           padding: 2rem 2rem 1rem;
           text-align: center;
         }
         .ym-eyebrow {
+          font-family: 'Montserrat', sans-serif;
           font-size: 0.65rem;
           font-weight: 700;
           letter-spacing: 0.15em;
@@ -255,9 +263,10 @@ const Yatras = () => {
           display: block;
         }
         .ym-title {
-          font-family: 'Moon Dance', cursive;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 800;
           font-size: 2.2rem;
-          color: #1a1a1a;
+          color: #582739;
           margin: 0;
           line-height: 1.1;
         }
@@ -296,9 +305,12 @@ const Yatras = () => {
           background: #faf9f7;
           transition: border-color 0.2s, background 0.2s;
         }
+        .ym-input::placeholder {
+          color: #aaa;
+        }
         .ym-input:focus {
           outline: none;
-          border-color: #e07b39;
+          border-color: #582739;
           background: #fff;
         }
 
@@ -306,7 +318,7 @@ const Yatras = () => {
           margin-top: 0.5rem;
           width: 100%;
           padding: 1rem;
-          background: #e07b39;
+          background: #582739;
           color: #fff;
           border: none;
           border-radius: 4px;
@@ -318,7 +330,7 @@ const Yatras = () => {
           cursor: pointer;
           transition: background 0.2s;
         }
-        .ym-submit:hover { background: #c96930; }
+        .ym-submit:hover { background: #401b28; }
 
         /* Success msg */
         .ym-success {
@@ -329,8 +341,8 @@ const Yatras = () => {
           width: 60px;
           height: 60px;
           border-radius: 50%;
-          background: rgba(224, 123, 57, 0.1);
-          color: #e07b39;
+          background: rgba(88, 39, 57, 0.1);
+          color: #582739;
           display: flex;
           align-items: center;
           justify-content: center;

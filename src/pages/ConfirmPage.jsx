@@ -85,14 +85,14 @@ const ConfirmPage = () => {
           width: 64px;
           height: 64px;
           border-radius: 50%;
-          border: 1.5px solid #e07b39;
+          border: 1.5px solid #582739;
           display: flex;
           align-items: center;
           justify-content: center;
           margin-bottom: 2rem;
         }
         .cp-icon-ring svg {
-          color: #e07b39;
+          color: #582739;
         }
 
         /* ── Headings ── */
@@ -101,7 +101,7 @@ const ConfirmPage = () => {
           font-weight: 700;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #e07b39;
+          color: #582739;
           margin-bottom: 0.5rem;
         }
         .cp-title {
@@ -172,42 +172,50 @@ const ConfirmPage = () => {
         .cp-btn-primary {
           flex: 1;
           min-width: 120px;
-          padding: 0.8rem 1.2rem;
-          background: #e07b39;
-          border: none;
+          padding: 0.9rem 1.2rem;
+          background: #582739;
+          border: 1.5px solid transparent;
           border-radius: 4px;
           font-family: 'Montserrat', sans-serif;
-          font-size: 0.75rem;
+          font-size: 0.85rem;
           font-weight: 700;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.08em;
+          line-height: 1.5;
           text-transform: uppercase;
-          color: #fff;
+          color: #fff7c2;
           text-decoration: none;
           text-align: center;
           cursor: pointer;
-          transition: background 0.2s;
+          transition: background 0.2s, color 0.2s, transform 0.15s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
-        .cp-btn-primary:hover { background: #c96930; color: #fff; }
+        .cp-btn-primary:hover { background: #f6d47b; color: #4d2030; transform: translateY(-1px); }
 
         .cp-btn-outline {
           flex: 1;
           min-width: 120px;
-          padding: 0.8rem 1.2rem;
+          padding: 0.9rem 1.2rem;
           background: transparent;
           border: 1.5px solid #e5e5e5;
           border-radius: 4px;
           font-family: 'Montserrat', sans-serif;
-          font-size: 0.75rem;
+          font-size: 0.85rem;
           font-weight: 700;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.08em;
+          line-height: 1.5;
           text-transform: uppercase;
           color: #555;
           text-decoration: none;
           text-align: center;
           cursor: pointer;
-          transition: border-color 0.2s, color 0.2s;
+          transition: border-color 0.2s, color 0.2s, transform 0.15s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
-        .cp-btn-outline:hover { border-color: #ccc; color: #1a1a1a; }
+        .cp-btn-outline:hover { border-color: #ccc; color: #1a1a1a; transform: translateY(-1px); }
 
         /* ── Footer note ── */
         .cp-note {
@@ -219,7 +227,7 @@ const ConfirmPage = () => {
           padding-top: 1.5rem;
           border-top: 1px solid #f0f0f0;
         }
-        .cp-note a { color: #e07b39; text-decoration: none; }
+        .cp-note a { color: #582739; text-decoration: none; font-weight: 600; }
 
         /* ── Print Styles (Receipt Mode) ── */
         @media print {
@@ -298,7 +306,7 @@ const ConfirmPage = () => {
 
           <p className="cp-note">
             80G exemption available · For receipt email PAN &amp; address to{' '}
-            <a href="mailto:info@iskconhzb.com">info@iskconhzb.com</a>
+            <a href="mailto:iskconhazaribagh1@gmail.com">iskconhazaribagh1@gmail.com</a>
           </p>
         </div>
       </div>

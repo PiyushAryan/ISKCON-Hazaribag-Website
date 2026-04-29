@@ -1,244 +1,57 @@
-import React, { useState, useEffect, useCallback } from 'react';
-
-const teachings = [
-  {
-    quote: "You should not be carried away by the dictation of the mind, but the mind should be carried by your dictation.",
-    author: "A. C. Bhaktivedanta Swami Prabhupada",
-    role: "Founder-Acharya, ISKCON",
-    image: "https://anvfnzuaen.cloudimg.io/cdno/n/webp/https://sppb.blob.core.windows.net/images/splilawebsite/prabhupada/ic_sp_lila_8.jpg",
-  },
-  {
-    quote: "Be like a tree. The tree gives shade even to him who cuts off its boughs.",
-    author: "Shri Chaitanya Mahaprabhu",
-    role: "The Golden Avatar",
-    image: "images/srichaitanya001901.jpg",
-  },
-];
+import React from 'react';
 
 const Teachings = () => {
-  const [current, setCurrent] = useState(0);
-  const [animating, setAnimating] = useState(false);
-
-  const switchTo = useCallback((idx) => {
-    if (animating || idx === current) return;
-    setAnimating(true);
-    setTimeout(() => {
-      setCurrent(idx);
-      setAnimating(false);
-    }, 300);
-  }, [animating, current]);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      switchTo((current + 1) % teachings.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [current, switchTo]);
-
-  const t = teachings[current];
-
   return (
-    <>
-      <style>{`
-        #DiscoverMore {
-          background: #1a0a00;
-          padding: 7rem 2rem;
-          position: relative;
-          overflow: hidden;
-        }
+    <section id="DiscoverMore" className="bg-[#96b3af] relative pt-[2rem] md:pt-[3rem] px-[1.5rem] min-h-[300px] overflow-visible z-10">
+      
+      {/* Exact Mandala Art Extracted from Design */}
+      <div className="absolute left-0 bottom-0 z-0 pointer-events-none opacity-90 overflow-hidden flex items-end">
+        <img src="/images/mandala-exact.png" alt="" className="w-[200px] md:w-[350px] object-contain object-bottom block translate-y-[15px] md:translate-y-[25px]" />
+      </div>
 
-        /* Subtle texture overlay */
-        #DiscoverMore::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: radial-gradient(ellipse at 60% 50%, rgba(224,123,57,0.08) 0%, transparent 70%);
-          pointer-events: none;
-        }
+      <div className="max-w-[1020px] w-full mx-auto grid grid-cols-1 md:grid-cols-[1fr_minmax(280px,400px)] gap-8 md:gap-[2rem] items-end relative z-10">
+        
+        {/* Left Column: Text Content */}
+        <div className="pb-[2rem] md:pb-[3rem] relative z-20 self-center">
+          <h2 className="text-[#fcf7c3] text-[clamp(1.6rem,3.5vw,2.2rem)] font-black uppercase tracking-widest mb-[1.5rem] font-['Montserrat']">
+            Founder Acharya
+          </h2>
+          
+          <div className="relative max-w-[580px]">
+            {/* Giant Quote Mark properly placed next to quote */}
+            <span className="absolute right-[-1rem] md:right-[-5rem] top-[-1rem] md:top-[1rem] text-[#58595b] text-[6rem] md:text-[9rem] leading-[0.7] font-black font-serif pointer-events-none select-none drop-shadow-sm opacity-90">
+              ❞
+            </span>
 
-        .tc-inner {
-          max-width: 860px;
-          margin: 0 auto;
-          position: relative;
-          z-index: 1;
-        }
-
-        /* Eyebrow */
-        .tc-eyebrow {
-          font-size: 0.7rem;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #e07b39;
-          margin-bottom: 3.5rem;
-          font-family: 'Montserrat', sans-serif;
-          display: block;
-          text-align: center;
-        }
-
-        /* Quote block */
-        .tc-quote-wrap {
-          transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        .tc-quote-wrap.fade-out {
-          opacity: 0;
-          transform: translateY(8px);
-        }
-
-        /* Opening mark */
-        .tc-mark {
-          font-family: Georgia, serif;
-          font-size: 5rem;
-          line-height: 0.6;
-          color: #e07b39;
-          opacity: 0.35;
-          display: block;
-          margin-bottom: 1.5rem;
-          user-select: none;
-        }
-
-        /* Quote text */
-        .tc-text {
-          font-family: 'Cormorant Garamond', Georgia, serif;
-          font-style: italic;
-          font-weight: 300;
-          font-size: clamp(1.5rem, 3.2vw, 2.2rem);
-          line-height: 1.65;
-          color: #f5ede4;
-          margin: 0 0 2.5rem;
-          letter-spacing: 0.01em;
-        }
-
-        /* Author row */
-        .tc-author-row {
-          display: flex;
-          align-items: center;
-          gap: 1.25rem;
-        }
-        .tc-avatar {
-          width: 52px;
-          height: 52px;
-          border-radius: 50%;
-          object-fit: cover;
-          border: 2px solid rgba(224,123,57,0.4);
-          flex-shrink: 0;
-        }
-        .tc-author-name {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 0.88rem;
-          font-weight: 700;
-          color: #f5ede4;
-          margin: 0 0 0.2rem;
-        }
-        .tc-author-role {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 0.72rem;
-          color: rgba(245,237,228,0.45);
-          font-weight: 500;
-          letter-spacing: 0.04em;
-          margin: 0;
-        }
-
-        /* Divider */
-        .tc-divider {
-          width: 1px;
-          height: 40px;
-          background: rgba(255,255,255,0.08);
-          margin: 0 0.5rem;
-          flex-shrink: 0;
-        }
-
-        /* Dot nav */
-        .tc-dots {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          margin-left: auto;
-        }
-        .tc-dot {
-          width: 20px;
-          height: 2px;
-          background: rgba(255,255,255,0.15);
-          border: none;
-          border-radius: 2px;
-          cursor: pointer;
-          padding: 0;
-          transition: background 0.3s, width 0.3s;
-        }
-        .tc-dot.active {
-          background: #e07b39;
-          width: 32px;
-        }
-
-        /* ── Mobile Responsive ── */
-        @media (max-width: 768px) {
-          #DiscoverMore {
-            padding: 3rem 1.25rem;
-          }
-          .tc-eyebrow {
-            margin-bottom: 2rem;
-          }
-          .tc-mark {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-          }
-          .tc-text {
-            font-size: 1.6rem;
-            line-height: 1.5;
-            margin-bottom: 2rem;
-          }
-          .tc-author-row {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1rem;
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
-            padding: 1.25rem;
-          }
-          .tc-divider {
-            display: none;
-          }
-          .tc-dots {
-            margin-left: 0;
-            margin-top: 0.5rem;
-          }
-        }
-      `}</style>
-
-      <section id="DiscoverMore">
-        <div className="tc-inner">
-
-          <span className="tc-eyebrow">Words of Wisdom</span>
-
-          <div className={`tc-quote-wrap${animating ? ' fade-out' : ''}`}>
-            <span className="tc-mark">"</span>
-            <p className="tc-text">{t.quote}</p>
-
-            <div className="tc-author-row">
-              <img className="tc-avatar" src={t.image} alt={t.author} />
-              <div>
-                <p className="tc-author-name">{t.author}</p>
-                <p className="tc-author-role">{t.role}</p>
-              </div>
-
-              <div className="tc-divider" />
-
-              <div className="tc-dots">
-                {teachings.map((_, i) => (
-                  <button
-                    key={i}
-                    className={`tc-dot${i === current ? ' active' : ''}`}
-                    onClick={() => switchTo(i)}
-                    aria-label={`Go to quote ${i + 1}`}
-                  />
-                ))}
-              </div>
+            <blockquote className="text-[#414042] text-[clamp(1.1rem,2.4vw,1.4rem)] italic leading-[1.5] font-['Cormorant_Garamond',Georgia,serif] m-0 pl-[1.2rem] font-medium relative z-10">
+              "This Kṛṣṇa consciousness movement is meant to save human society from spiritual death and bring people to the platform of eternal life, full knowledge and bliss."
+            </blockquote>
+            
+            <div className="mt-[1.5rem] max-w-[560px] text-center relative z-10">
+              <p className="text-[#414042] text-[0.65rem] font-extrabold uppercase tracking-[0.08em] m-0">
+                Śrīmad-Bhāgavatam 4.30.20 — Purport
+              </p>
+              <p className="text-[#414042] text-[0.65rem] font-extrabold uppercase tracking-[0.08em] m-0 mt-1">
+                — HIS DIVINE GRACE AC BHAKTIVEDANTA SWAMI SRILA PRABHUPADA
+              </p>
             </div>
           </div>
-
         </div>
-      </section>
-    </>
+
+        {/* Right Column: Image */}
+        <div className="relative flex justify-center md:justify-end items-end z-30 w-full">
+          {/* We use negative top margin to make the image slightly break out of the top, and bottom-0 to stay flush at bottom */}
+          <img
+            className="w-full max-w-[320px] md:max-w-[420px] object-contain object-bottom block relative z-30 -mt-[3rem] md:-mt-[4rem]"
+            src="/images/image-removebg-preview.png"
+            alt="Srila Prabhupada"
+            loading="lazy"
+            style={{ filter: "drop-shadow(0 15px 20px rgba(40, 12, 20, 0.25))" }}
+          />
+        </div>
+
+      </div>
+    </section>
   );
 };
 

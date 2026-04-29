@@ -1,264 +1,268 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
-  const wrapperRef = useRef();
-  const scrollRef = useRef();
+  const [showSchedule, setShowSchedule] = useState(false);
 
-  useEffect(() => {
-    // Animate in on mount
-    const el = scrollRef.current;
-    if (el) {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      requestAnimationFrame(() => {
-        el.style.transition = 'opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s';
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      });
-    }
-
-    // Elegant Scroll Squeeze Effect
-    const handleSqueeze = () => {
-      const hero = wrapperRef.current;
-      if (!hero) return;
-      
-      const scrollY = window.scrollY;
-      const maxScroll = 250;
-      const progress = Math.min(scrollY / maxScroll, 1);
-      
-      const isMobile = window.innerWidth <= 768;
-      const targetSqueezePerSide = isMobile ? 12 : 50;
-      const shrinkFactor = 1 - (progress * ((targetSqueezePerSide * 2) / window.innerWidth));
-      const radius = progress * (isMobile ? 24 : 48);
-      
-      hero.style.transform = `scale(${shrinkFactor})`;
-      hero.style.transformOrigin = 'top center';
-      hero.style.borderRadius = `0 0 ${radius}px ${radius}px`;
-      
-      const opacityFade = 1 - (progress * (isMobile ? 0.5 : 0.75));
-      hero.style.opacity = `${opacityFade}`;
-    };
-
-    window.addEventListener('scroll', handleSqueeze, { passive: true });
-    // Run once to initialize
-    handleSqueeze();
-
-    return () => window.removeEventListener('scroll', handleSqueeze);
-  }, []);
+  const toggleSchedule = (e) => {
+    e.preventDefault();
+    setShowSchedule(!showSchedule);
+  };
 
   return (
     <>
       <style>{`
         #title {
+          min-height: 660px;
+          height: 100vh;
+          max-height: 820px;
           position: relative;
-          min-height: 100vh;
-          display: flex;
-          align-items: flex-end;
-          padding: 0;
-          background: none;
           overflow: hidden;
+          display: flex;
+          align-items: flex-start;
+          background: #2b0710;
+          color: #fff7c2;
+          padding: 7.6rem 1.5rem 4rem;
         }
-
-        /* Background image */
         .hero-bg {
           position: absolute;
           inset: 0;
-          background-image: url('/images/iskcon-rm.jpg');
+          background-image:
+            linear-gradient(180deg, rgba(50, 8, 19, 0.46) 0%, rgba(50, 8, 19, 0.12) 34%, rgba(50, 8, 19, 0.54) 78%, #4f2431 100%),
+            url('/images/iskcon-rm.jpg');
           background-size: cover;
-          background-position: center 30%;
-          z-index: 0;
+          background-position: center 36%;
+          transform: scale(1.01);
         }
-
-        /* Gradient overlay — dark at bottom, preserves image at top */
-        .hero-bg::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            to bottom,
-            rgba(16, 8, 0, 0.15) 0%,
-            rgba(16, 8, 0, 0.3) 40%,
-            rgba(16, 8, 0, 0.85) 75%,
-            rgba(16, 8, 0, 0.97) 100%
-          );
-        }
-
-        /* Content */
-        .hero-content {
+        .hero-inner {
+          width: min(1180px, 100%);
+          margin: 0 auto;
           position: relative;
           z-index: 1;
-          width: 100%;
-          max-width: 1100px;
-          margin: 0 auto;
-          padding: 0 2rem 5rem;
+          display: grid;
+          grid-template-columns: minmax(280px, 390px) 1fr;
+          gap: 2rem;
         }
-
-        /* Eyebrow */
-        .hero-eyebrow {
+        .hero-panel {
+          background: rgba(81, 35, 47, 0.96);
+          border: 1px solid rgba(255, 211, 111, 0.2);
+          box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+          padding: 1.45rem 1.55rem 1.35rem;
+          border-radius: 4px;
+        }
+        .hero-kicker {
+          font-size: 0.72rem;
+          color: #f5d78b;
+          margin: 0 0 0.35rem;
+          font-weight: 500;
+        }
+        .hero-title {
+          font-family: 'Montserrat', sans-serif;
+          font-size: clamp(1.8rem, 4vw, 2.7rem);
+          letter-spacing: 0;
+          line-height: 1;
+          margin: 0 0 0.55rem;
+          color: #fff7c2;
+          font-weight: 800;
+        }
+        .hero-address,
+        .hero-founder {
+          color: rgba(255, 247, 194, 0.8);
+          font-size: 0.72rem;
+          line-height: 1.55;
+          margin: 0;
+        }
+        .hero-founder { margin-top: 0.35rem; }
+        .hero-status {
+          display: flex;
+          align-items: center;
+          gap: 0.7rem;
+          margin: 1.2rem 0 1rem;
+          color: #f8d777;
+          font-size: 0.78rem;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+        .hero-status strong {
+          color: #fff7c2;
+          font-size: 0.9rem;
+        }
+        .hero-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #82d76f;
+          box-shadow: 0 0 0 6px rgba(130, 215, 111, 0.15);
+        }
+        .hero-actions {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          flex-wrap: wrap;
+        }
+        .pdf-btn {
           display: inline-flex;
           align-items: center;
-          gap: 0.6rem;
+          justify-content: center;
+          min-height: 38px;
+          padding: 0.72rem 1rem;
+          border-radius: 5px;
+          background: #f6d47b;
+          color: #4a1f2b;
+          border: 1px solid #f6d47b;
           font-family: 'Montserrat', sans-serif;
-          font-size: 0.7rem;
-          font-weight: 700;
-          letter-spacing: 0.2em;
+          font-size: 0.76rem;
+          font-weight: 800;
           text-transform: uppercase;
-          color: #e07b39;
-          margin-bottom: 1.25rem;
+          text-decoration: none;
+          letter-spacing: 0;
+          transition: transform 0.2s ease, background 0.2s ease;
         }
-        .hero-eyebrow-line {
-          display: inline-block;
-          width: 28px;
-          height: 1.5px;
-          background: #e07b39;
+        .pdf-btn:hover {
+          background: #ffe495;
+          color: #4a1f2b;
+          transform: translateY(-1px);
         }
-
-        /* Main heading */
-        .hero-title {
-          font-family: 'Moon Dance', cursive;
-          font-size: clamp(3rem, 9vw, 6.5rem);
-          font-weight: 700;
-          color: #f5ede4;
-          line-height: 1.0;
-          margin: 0 0 1rem;
-          letter-spacing: -0.01em;
-          cursor: default;
-          transition: transform 0.4s ease;
+        .pdf-btn.secondary {
+          background: transparent;
+          color: #f6d47b;
         }
-        .hero-title:hover {
-          transform: translateY(-4px);
-          background: linear-gradient(135deg, #f5ede4 10%, #e07b39 50%, #feb47b 80%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          color: transparent;
-          filter: drop-shadow(0 0 24px rgba(224, 123, 57, 0.35));
+        .pdf-btn.secondary:hover { background: rgba(246, 212, 123, 0.1); }
+        @media (max-width: 760px) {
+          #title {
+            min-height: 720px;
+            height: auto;
+            padding: 6.6rem 1rem 3rem;
+            align-items: flex-end;
+          }
+          .hero-bg { background-position: center top; }
+          .hero-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+          }
+          .hero-panel {
+            padding: 1.2rem;
+          }
+          .hero-actions .pdf-btn {
+            flex: 1;
+          }
         }
-
-        /* Subtitle */
-        .hero-subtitle {
-          font-family: 'Montserrat', sans-serif;
-          font-size: clamp(0.8rem, 1.5vw, 0.95rem);
-          font-weight: 500;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: rgba(245, 237, 228, 0.45);
-          margin: 0 0 3rem;
-        }
-
-
-        /* Scroll indicator */
-        .hero-scroll {
-          position: absolute;
-          bottom: 2rem;
-          right: 2rem;
-          z-index: 1;
+        .schedule-modal-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(38, 9, 18, 0.7);
+          backdrop-filter: blur(4px);
+          z-index: 2000;
           display: flex;
-          flex-direction: column;
           align-items: center;
-          gap: 0.4rem;
-          cursor: pointer;
-          opacity: 0.35;
-          transition: opacity 0.2s;
+          justify-content: center;
+          padding: 1.5rem;
+          opacity: 0;
+          animation: fadeIn 0.3s forwards;
         }
-        .hero-scroll:hover { opacity: 0.7; }
-        .hero-scroll-text {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 0.6rem;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #f5ede4;
-          writing-mode: vertical-rl;
+        @keyframes fadeIn {
+          to { opacity: 1; }
         }
-        .hero-scroll-line {
-          width: 1px;
-          height: 40px;
-          background: linear-gradient(to bottom, #f5ede4, transparent);
-          animation: scrollPulse 2s ease-in-out infinite;
+        .schedule-modal {
+          background: #542e3a;
+          border: 1px solid rgba(246, 212, 123, 0.3);
+          border-radius: 8px;
+          box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+          width: 100%;
+          max-width: 400px;
+          padding: 2rem;
+          position: relative;
         }
-        @keyframes scrollPulse {
-          0%, 100% { opacity: 0.3; transform: scaleY(1); }
-          50%       { opacity: 0.9; transform: scaleY(1.1); }
-        }
-
-        /* Stat strip */
-        .hero-strip {
+        .schedule-close {
           position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          z-index: 1;
-          display: flex;
-          border-top: 1px solid rgba(245, 237, 228, 0.07);
+          top: 1rem;
+          right: 1.2rem;
+          background: transparent;
+          border: none;
+          color: #f6d47b;
+          font-size: 2rem;
+          cursor: pointer;
+          line-height: 1;
         }
-        .hero-stat {
-          flex: 1;
-          padding: 1.25rem 2rem;
-          border-right: 1px solid rgba(245, 237, 228, 0.07);
+        .schedule-title {
+          font-family: 'Montserrat', sans-serif;
+          color: #fff7c2;
+          font-size: 1.3rem;
+          font-weight: 800;
+          margin-bottom: 1.5rem;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
           text-align: center;
         }
-        .hero-stat:last-child { border-right: none; }
-        .hero-stat-num {
-          display: block;
-          font-family: 'Montserrat', sans-serif;
-          font-size: 1.25rem;
-          font-weight: 800;
-          color: #e07b39;
-          line-height: 1;
-          margin-bottom: 0.25rem;
+        .schedule-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
         }
-        .hero-stat-label {
+        .schedule-item {
+          display: flex;
+          justify-content: space-between;
+          padding: 0.75rem 0;
+          border-bottom: 1px solid rgba(255, 247, 194, 0.1);
+          color: rgba(255, 247, 194, 0.9);
+          font-size: 0.85rem;
           font-family: 'Montserrat', sans-serif;
-          font-size: 0.62rem;
-          font-weight: 600;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: rgba(245, 237, 228, 0.3);
         }
-        @media (max-width: 600px) {
-          .hero-strip { display: none; }
-          .hero-content { padding-bottom: 3rem; }
-          .hero-scroll { display: none; }
+        .schedule-item:last-child {
+          border-bottom: none;
+        }
+        .schedule-time {
+          font-weight: 700;
+          color: #f6d47b;
         }
       `}</style>
 
-      <section id="title" ref={wrapperRef} style={{ willChange: 'transform, border-radius', overflow: 'hidden' }}>
+      <section id="title">
         <div className="hero-bg" />
-
-        <div className="hero-content" ref={scrollRef}>
-          <p className="hero-eyebrow">
-            <span className="hero-eyebrow-line" />
-            Welcome to
-          </p>
-          <h1 className="hero-title">Sri Sri Radha Madhava</h1>
-          <p className="hero-subtitle">Temple · ISKCON Hazaribag · Jharkhand, India</p>
-
-
-        </div>
-
-        {/* Scroll hint */}
-        <div className="hero-scroll" onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}>
-          <span className="hero-scroll-text">Scroll</span>
-          <div className="hero-scroll-line" />
-        </div>
-
-        {/* Stat strip */}
-        <div className="hero-strip">
-          <div className="hero-stat">
-            <span className="hero-stat-num">Est 2010</span>
-            <span className="hero-stat-label">Founded</span>
-          </div>
-          <div className="hero-stat">
-            <span className="hero-stat-num">365</span>
-            <span className="hero-stat-label">Days of Seva</span>
-          </div>
-          <div className="hero-stat">
-            <span className="hero-stat-num">∞</span>
-            <span className="hero-stat-label">Blessings</span>
+        <div className="hero-inner">
+          <div className="hero-panel">
+            <p className="hero-kicker">Welcome to</p>
+            <h1 className="hero-title">ISKCON Hazaribag</h1>
+            <p className="hero-address">
+              Vanshidhar Colony, PTC Chowk, Hazaribagh, Jharkhand - 825301
+            </p>
+            <p className="hero-founder">
+              International Society for Krishna Consciousness<br />
+              Founder Acharya: His Divine Grace A. C. Bhaktivedanta Swami Srila Prabhupada
+            </p>
+            <div className="hero-status">
+              <span className="hero-dot" />
+              <span>Temple Status: <strong>Open till 04:30 PM</strong></span>
+            </div>
+            <div className="hero-actions">
+              <a className="pdf-btn secondary" href="#schedule" onClick={toggleSchedule}>View Schedule</a>
+              <Link className="pdf-btn" to="/checkout">Donate</Link>
+            </div>
           </div>
         </div>
       </section>
+
+      {showSchedule && (
+        <div className="schedule-modal-overlay" onClick={() => setShowSchedule(false)}>
+          <div className="schedule-modal" onClick={e => e.stopPropagation()}>
+            <button className="schedule-close" onClick={() => setShowSchedule(false)}>×</button>
+            <h3 className="schedule-title">Temple Timings</h3>
+            <ul className="schedule-list">
+              <li className="schedule-item"><span>Mangala Arati</span><span className="schedule-time">04:30 AM</span></li>
+              <li className="schedule-item"><span>Tulasi Arati</span><span className="schedule-time">05:15 AM</span></li>
+              <li className="schedule-item"><span>Sringar Darshan</span><span className="schedule-time">07:15 AM</span></li>
+              <li className="schedule-item"><span>Guru Puja</span><span className="schedule-time">07:30 AM</span></li>
+              <li className="schedule-item"><span>Srimad Bhagavatam</span><span className="schedule-time">08:00 AM</span></li>
+              <li className="schedule-item"><span>Raj Bhoga Arati</span><span className="schedule-time">12:30 PM</span></li>
+              <li className="schedule-item"><span>Temple Closes</span><span className="schedule-time">01:00 PM</span></li>
+              <li className="schedule-item"><span>Pushpa Arati</span><span className="schedule-time">04:15 PM</span></li>
+              <li className="schedule-item"><span>Sandhya Arati</span><span className="schedule-time">07:00 PM</span></li>
+              <li className="schedule-item"><span>Temple Closes</span><span className="schedule-time">08:30 PM</span></li>
+            </ul>
+          </div>
+        </div>
+      )}
     </>
   );
 };

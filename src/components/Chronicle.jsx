@@ -1,217 +1,65 @@
 import React from 'react';
 
-const cards = [
-  {
-    image: 'images/bhagavad-gita.jpg',
-    tag: 'Scripture',
-    title: 'Teachings from Gītā',
-    desc: 'Discover the timeless wisdom of Bhagavad Gita — the essence of Vedic knowledge spoken by Lord Krishna to Arjuna on the battlefield of Kurukshetra.',
-  },
-  {
-    image: 'images/How-Hare-Krishna-Movement-Spread-to-Worldwide.jpeg',
-    tag: 'Legacy',
-    title: 'Glory of Srila Prabhupada',
-    desc: 'The dear most friend and ever well-wisher of one and all, who travelled the world to give the transcendental bliss of Krishna consciousness.',
-  },
-  {
-    image: 'images/gau.jpg',
-    tag: 'Seva',
-    title: 'Gau Seva',
-    desc: 'Cow protection is one of the most sacred activities in Vedic culture. Participate in our Gau Seva and be part of this profound tradition.',
-  },
+const purposes = [
+  'To systematically propagate spiritual knowledge to society at large and to educate all people in the techniques of spiritual life in order to check the imbalance of values in life and to achieve real unity and peace in the world.',
+  'To propagate a consciousness of Krishna (God), as it is revealed in the great scriptures of India, Bhagavad-gita and Srimad-Bhagavatam.',
+  'To bring the members of the Society together with each other and nearer to Krishna, the prime entity, thus developing the idea within the members, and humanity at large, that each soul is part and parcel of the quality of Godhead.',
+  'To teach and encourage the sankirtana movement, congregational chanting of the holy name of God, as revealed in the teachings of Lord Sri Caitanya Mahaprabhu.',
+  'To erect for the members and for society at large a holy place of transcendental pastimes dedicated to the personality of Krishna.',
+  'To bring the members closer together for the purpose of teaching a simpler, natural way of life.',
+  'With a view towards achieving the aforementioned purposes, to publish and distribute periodicals, magazines, books and other writings.',
 ];
+
+const MissionCard = ({ item, index, numberPos = 'right', isFullWidth = false }) => {
+  const isRight = numberPos === 'right';
+  return (
+    <div className={`relative flex items-center min-h-[100px] h-full rounded-xl bg-white/[0.06] overflow-hidden ${isRight ? 'text-left pl-6 pr-28' : 'text-right pr-6 pl-28'} py-5 backdrop-blur-sm transition-transform hover:-translate-y-1 duration-300`}>
+      {/* Cutouts to match the design's slanted slashes */}
+      <div className={`absolute top-0 ${isRight ? 'right-[4.5rem] -skew-x-[18deg]' : 'left-[4.5rem] skew-x-[18deg]'} w-4 h-full bg-[#542e3a] z-10 shadow-inner`}></div>
+      <div className={`absolute top-0 ${isRight ? '-right-3 -skew-x-[18deg]' : '-left-3 skew-x-[18deg]'} w-6 h-full bg-[#542e3a] z-10`}></div>
+      
+      {/* Text */}
+      <p className="relative z-20 text-white/90 text-[0.85rem] md:text-sm font-medium leading-relaxed m-0 w-full">
+        {item}
+      </p>
+      
+      {/* Number */}
+      <span className={`absolute top-1/2 -translate-y-1/2 ${isRight ? 'right-5' : 'left-5'} text-[#fff7c2] text-5xl md:text-6xl font-normal font-['Montserrat'] z-20`}>
+        {String(index).padStart(2, '0')}
+      </span>
+    </div>
+  );
+};
 
 const Chronicle = () => {
   return (
-    <>
-      <style>{`
-        #features {
-          background: #faf9f7;
-          padding: 6rem 2rem;
-        }
+    <section id="mission" className="bg-[#542e3a] py-16 md:py-24 px-4 sm:px-6 relative overflow-hidden">
+      <div className="max-w-[1000px] mx-auto relative z-10 text-center">
+        <h2 className="text-3xl md:text-[2.5rem] font-bold uppercase tracking-widest mb-6 font-['Montserrat'] text-[#fff7c2]">
+           Our Mission
+        </h2>
+        <p className="max-w-[800px] mx-auto text-[#fff7c2]/80 text-[0.95rem] md:text-base font-medium leading-relaxed mb-14">
+          When Prabhupada began the International Society for Krishna Consciousness (in New York City in 1966),
+          he formulated a clear mission statement. Thus the 7 Purposes of ISKCON are as follows:
+        </p>
 
-        .cr-inner {
-          max-width: 1100px;
-          margin: 0 auto;
-        }
-
-        /* ── Header ── */
-        .cr-header {
-          display: flex;
-          align-items: flex-end;
-          justify-content: space-between;
-          margin-bottom: 4rem;
-          gap: 1.5rem;
-          flex-wrap: wrap;
-        }
-        .cr-eyebrow {
-          font-size: 0.7rem;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #e07b39;
-          margin-bottom: 0.6rem;
-        }
-        .cr-title {
-          font-family: 'Merienda One', cursive;
-          font-size: clamp(2rem, 4vw, 2.8rem);
-          font-weight: 400;
-          color: #1a1a1a;
-          line-height: 1.15;
-          margin: 0;
-        }
-        .cr-desc {
-          font-size: 0.88rem;
-          color: #999;
-          max-width: 280px;
-          line-height: 1.7;
-          font-family: 'Montserrat', sans-serif;
-          margin: 0;
-        }
-
-        /* ── Grid ── */
-        .cr-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 2px;
-        }
-        @media (max-width: 900px) {
-          .cr-grid { grid-template-columns: 1fr; gap: 2px; }
-          .cr-desc { max-width: 100%; }
-        }
-        @media (min-width: 600px) and (max-width: 900px) {
-          .cr-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        /* ── Card ── */
-        .cr-card {
-          background: #fff;
-          overflow: hidden;
-          position: relative;
-          cursor: default;
-          transition: transform 0.35s ease;
-        }
-        .cr-card:hover { transform: translateY(-4px); }
-
-        .cr-img-wrap {
-          width: 100%;
-          aspect-ratio: 4/3;
-          overflow: hidden;
-        }
-        .cr-img-wrap img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.6s ease;
-          display: block;
-        }
-        .cr-card:hover .cr-img-wrap img {
-          transform: scale(1.05);
-        }
-
-        .cr-body {
-          padding: 1.75rem 1.75rem 2rem;
-          border-bottom: 3px solid transparent;
-          transition: border-color 0.3s;
-        }
-        .cr-card:hover .cr-body {
-          border-color: #e07b39;
-        }
-
-        .cr-tag {
-          display: inline-block;
-          font-size: 0.65rem;
-          font-weight: 700;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
-          color: #e07b39;
-          margin-bottom: 0.6rem;
-        }
-        .cr-card-title {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 1.1rem;
-          font-weight: 700;
-          color: #1a1a1a;
-          margin: 0 0 0.75rem;
-          line-height: 1.3;
-        }
-        .cr-card-desc {
-          font-size: 0.83rem;
-          color: #888;
-          line-height: 1.75;
-          font-family: 'Montserrat', sans-serif;
-          margin: 0;
-        }
-
-        /* ── Divider ── */
-        .cr-rule {
-          border: none;
-          border-top: 1px solid #ebebeb;
-          margin: 4rem 0 0;
-        }
-
-        /* ── Mobile Responsive ── */
-        @media (max-width: 768px) {
-          #features {
-            padding: 3rem 1.25rem;
-            background: #faf9f7;
-          }
-          .cr-header {
-            margin-bottom: 2rem;
-            flex-direction: column;
-            align-items: flex-start;
-          }
-          .cr-title {
-            font-size: 2.2rem;
-          }
-          .cr-grid {
-            gap: 1.5rem;
-          }
-          .cr-card {
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border: 1px solid rgba(0,0,0,0.03);
-          }
-          .cr-rule {
-            margin: 3rem 0 0;
-          }
-        }
-      `}</style>
-
-      <section id="features">
-        <div className="cr-inner">
-
-          {/* Header */}
-          <div className="cr-header">
-            <div>
-              <p className="cr-eyebrow">Explore &amp; Discover</p>
-              <h2 className="cr-title">Chronicle</h2>
-            </div>
-            <p className="cr-desc">
-              Stories of devotion, service, and timeless teachings from the heart of ISKCON Hazaribag.
-            </p>
-          </div>
-
-          {/* Cards */}
-          <div className="cr-grid">
-            {cards.map((c, i) => (
-              <div className="cr-card" key={i}>
-                <div className="cr-img-wrap">
-                  <img src={c.image} alt={c.title} />
-                </div>
-                <div className="cr-body">
-                  <span className="cr-tag">{c.tag}</span>
-                  <h3 className="cr-card-title">{c.title}</h3>
-                  <p className="cr-card-desc">{c.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <hr className="cr-rule" />
+        {/* Use auto-rows-[1fr] to force every row to have the same height */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 auto-rows-[1fr] mb-4 md:mb-6 lg:mb-8">
+          {/* Order items so they appear 1,2,3 on the left and 4,5,6 on the right on larger screens */}
+          <div className="md:col-start-1 md:row-start-1 h-full"><MissionCard item={purposes[0]} index={1} numberPos="right" /></div>
+          <div className="md:col-start-2 md:row-start-1 h-full"><MissionCard item={purposes[3]} index={4} numberPos="right" /></div>
+          <div className="md:col-start-1 md:row-start-2 h-full"><MissionCard item={purposes[1]} index={2} numberPos="left" /></div>
+          <div className="md:col-start-2 md:row-start-2 h-full"><MissionCard item={purposes[4]} index={5} numberPos="left" /></div>
+          <div className="md:col-start-1 md:row-start-3 h-full"><MissionCard item={purposes[2]} index={3} numberPos="right" /></div>
+          <div className="md:col-start-2 md:row-start-3 h-full"><MissionCard item={purposes[5]} index={6} numberPos="right" /></div>
         </div>
-      </section>
-    </>
+        
+        {/* Full width bottom (07th card) */}
+        <div className="w-full h-full">
+          <MissionCard item={purposes[6]} index={7} numberPos="right" isFullWidth={true} />
+        </div>
+      </div>
+    </section>
   );
 };
 

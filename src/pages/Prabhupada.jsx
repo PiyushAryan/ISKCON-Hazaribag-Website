@@ -14,8 +14,8 @@ const Prabhupada = () => {
         /* Hero */
         .sp-hero {
           position: relative;
-          background: #100800;
-          color: #f5ede4;
+          background: #2b0710;
+          color: #fff7c2;
           padding: 140px 2rem 5rem;
           min-height: 80vh;
           display: flex;
@@ -27,7 +27,7 @@ const Prabhupada = () => {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(135deg, rgba(224, 123, 57, 0.08) 0%, rgba(16, 8, 0, 0) 100%);
+          background: linear-gradient(135deg, rgba(246, 212, 123, 0.1) 0%, rgba(43, 7, 16, 0) 100%);
         }
 
         .sp-hero-container {
@@ -72,30 +72,31 @@ const Prabhupada = () => {
           font-weight: 700;
           letter-spacing: 0.25em;
           text-transform: uppercase;
-          color: #e07b39;
+          color: #f6d47b;
           margin-bottom: 1.5rem;
           display: block;
         }
 
         .sp-title {
-          font-family: 'Merienda One', cursive;
-          font-size: clamp(2.5rem, 6vw, 4rem);
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 800;
+          font-size: clamp(2.5rem, 5vw, 3.8rem);
           line-height: 1.1;
           margin: 0 0 1rem;
-          color: #fff;
+          color: #fff7c2;
         }
 
         .sp-subtitle {
           font-family: 'Cormorant Garamond', serif;
           font-size: clamp(1.2rem, 3vw, 1.8rem);
           font-style: italic;
-          color: rgba(245,237,228,0.7);
+          color: rgba(255, 247, 194, 0.8);
           margin: 0 0 2rem;
         }
 
         /* Reading Area */
         .sp-content {
-          background: #faf9f7;
+          background: #542e3a;
           padding: 6rem 2rem;
         }
 
@@ -103,7 +104,7 @@ const Prabhupada = () => {
           max-width: 720px;
           margin: 0 auto;
           font-family: 'Montserrat', sans-serif;
-          color: #333;
+          color: rgba(255, 247, 194, 0.85);
           line-height: 1.8;
           font-size: 1.05rem;
         }
@@ -119,23 +120,26 @@ const Prabhupada = () => {
           line-height: 0.8;
           padding-top: 4px;
           padding-right: 12px;
-          color: #e07b39;
+          color: #f6d47b;
           font-weight: 600;
         }
 
         .sp-quote-block {
           margin: 4rem 0;
           padding: 3rem;
-          background: #fff;
-          border-left: 4px solid #e07b39;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+          background: rgba(255, 255, 255, 0.06);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-left: 4px solid #f6d47b;
+          border-radius: 0 12px 12px 0;
+          box-shadow: 0 24px 40px rgba(0,0,0,0.2);
         }
 
         .sp-quote-text {
           font-family: 'Cormorant Garamond', serif;
           font-size: 1.6rem;
           font-style: italic;
-          color: #100800;
+          color: #fff7c2;
           line-height: 1.5;
           margin: 0;
         }
@@ -154,16 +158,23 @@ const Prabhupada = () => {
 
         .sp-stat {
           text-align: center;
-          padding: 2rem;
-          background: #fff;
-          border-radius: 8px;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+          padding: 2.5rem 1.5rem;
+          background: rgba(255, 255, 255, 0.06);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+          transition: transform 0.3s ease;
+        }
+
+        .sp-stat:hover {
+          transform: translateY(-5px);
         }
 
         .sp-stat-num {
           font-family: 'Cormorant Garamond', serif;
           font-size: 3.5rem;
-          color: #e07b39;
+          color: #f6d47b;
           font-weight: 600;
           line-height: 1;
           margin-bottom: 0.5rem;
@@ -174,7 +185,7 @@ const Prabhupada = () => {
           text-transform: uppercase;
           letter-spacing: 0.1em;
           font-weight: 700;
-          color: #888;
+          color: rgba(255, 247, 194, 0.7);
         }
       `}</style>
 

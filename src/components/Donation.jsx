@@ -3,22 +3,20 @@ import { Link } from 'react-router-dom';
 
 const causes = [
   {
-    image: 'https://www.iskcondelhi.com/wp-content/uploads/2021/05/anna-dan-iskcon-delhi-tab.jpg',
-    tag: 'Food Seva',
-    title: 'Food for Life',
-    desc: 'Nourish the hungry and earn divine blessings. Every meal served is an offering to the Lord.',
+    image: '/images/food-for-life-collarge.jpg',
+    title: 'Anna Daan',
+    desc: 'Contribute to food distribution. Served 76 Crores plates since 2020.',
   },
   {
-    image: 'https://www.iskcondelhi.com/wp-content/uploads/2021/05/food-for-life-iskcon-delhi.jpg',
-    tag: 'Community',
-    title: 'Food for Needy',
-    desc: 'Support our mission of feeding underprivileged communities around Hazaribag with love and devotion.',
+    image: '/images/bhagavad-gita.jpg',
+    title: 'Varuthini Ekadashi',
+    desc: 'Schedule donation on this auspicious day.',
+    tag: 'Special Opportunity',
   },
   {
-    image: 'https://www.iskcondelhi.com/wp-content/uploads/2021/05/nitya-seva-iskcon-delhi-donation.jpg',
-    tag: 'Daily Worship',
-    title: 'Nitya Seva',
-    desc: 'Sponsor the daily worship of Sri Sri Radha Madhava — flowers, incense, garments, and prasadam.',
+    image: '/images/How-Hare-Krishna-Movement-Spread-to-Worldwide.jpeg',
+    title: 'Gyan Daan',
+    desc: 'Contribute to book distribution by sponsoring Prabhupada books.',
   },
 ];
 
@@ -27,74 +25,47 @@ const Donation = () => {
     <>
       <style>{`
         #donation {
-          background: #fff;
-          padding: 6rem 2rem;
+          background: #5a2a39;
+          color: #fff7c2;
+          padding: 3.8rem 1.4rem 5rem;
+          text-align: center;
         }
         .dn-inner {
-          max-width: 1100px;
+          max-width: 980px;
           margin: 0 auto;
         }
-        .dn-header {
-          display: flex;
-          align-items: flex-end;
-          justify-content: space-between;
-          margin-bottom: 4rem;
-          gap: 1.5rem;
-          flex-wrap: wrap;
+        .dn-quote {
+          max-width: 720px;
+          margin: 0.7rem auto 0;
+          color: rgba(255, 247, 194, 0.86);
+          font-size: 0.86rem;
+          line-height: 1.65;
         }
-        .dn-eyebrow {
-          font-size: 0.7rem;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #e07b39;
-          margin-bottom: 0.6rem;
-          font-family: 'Montserrat', sans-serif;
+        .dn-credit {
+          margin: 0.55rem 0 0;
+          color: rgba(255, 247, 194, 0.72);
+          font-size: 0.62rem;
+          line-height: 1.45;
         }
-        .dn-title {
-          font-family: 'Merienda One', cursive;
-          font-size: clamp(1.8rem, 4vw, 2.8rem);
-          font-weight: 400;
-          color: #1a1a1a;
-          line-height: 1.2;
-          margin: 0;
-        }
-        .dn-desc {
-          font-size: 0.88rem;
-          color: #999;
-          max-width: 280px;
-          line-height: 1.7;
-          font-family: 'Montserrat', sans-serif;
-          margin: 0;
-        }
-
-        /* Grid */
         .dn-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 2px;
-          background: #ebebeb;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 1rem;
+          max-width: 720px;
+          margin: 3rem auto 2.7rem;
+          align-items: stretch;
         }
-        @media (max-width: 900px) {
-          .dn-grid { grid-template-columns: 1fr; }
-        }
-        @media (min-width: 600px) and (max-width: 900px) {
-          .dn-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        /* Card */
         .dn-card {
-          background: #fff;
+          position: relative;
+          background: rgba(255, 255, 255, 0.08);
+          border-radius: 9px;
           overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          transition: transform 0.3s ease;
+          text-align: left;
+          color: #fff7c2;
+          box-shadow: 0 18px 42px rgba(20, 5, 10, 0.18);
         }
-        .dn-card:hover { transform: translateY(-4px); }
-
         .dn-img-wrap {
-          width: 100%;
-          aspect-ratio: 3/2;
+          aspect-ratio: 1;
           overflow: hidden;
         }
         .dn-img-wrap img {
@@ -102,153 +73,75 @@ const Donation = () => {
           height: 100%;
           object-fit: cover;
           display: block;
-          transition: transform 0.6s ease;
+          transition: transform 0.45s ease;
         }
-        .dn-card:hover .dn-img-wrap img {
-          transform: scale(1.05);
-        }
-
+        .dn-card:hover img { transform: scale(1.05); }
         .dn-body {
-          padding: 1.75rem 1.75rem 2rem;
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-          border-bottom: 3px solid transparent;
-          transition: border-color 0.3s;
-        }
-        .dn-card:hover .dn-body {
-          border-color: #e07b39;
-        }
-
-        .dn-tag {
-          font-size: 0.62rem;
-          font-weight: 700;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
-          color: #e07b39;
-          margin-bottom: 0.5rem;
-          display: block;
+          padding: 0.85rem;
         }
         .dn-card-title {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 1.1rem;
-          font-weight: 700;
-          color: #1a1a1a;
-          margin: 0 0 0.65rem;
-          line-height: 1.3;
+          color: #fff7c2;
+          font-size: 0.92rem;
+          font-weight: 900;
+          line-height: 1.2;
+          margin: 0 0 0.35rem;
         }
         .dn-card-desc {
-          font-size: 0.82rem;
-          color: #888;
-          line-height: 1.75;
-          font-family: 'Montserrat', sans-serif;
-          margin: 0 0 1.75rem;
-          flex: 1;
+          color: rgba(255, 247, 194, 0.76);
+          font-size: 0.68rem;
+          line-height: 1.5;
+          margin: 0;
         }
-
-        /* Button */
-        .dn-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.4rem;
-          padding: 0.65rem 1.4rem;
-          background: transparent;
-          border: 1.5px solid #1a1a1a;
-          border-radius: 4px;
-          font-family: 'Montserrat', sans-serif;
-          font-size: 0.75rem;
-          font-weight: 700;
-          letter-spacing: 0.1em;
+        .dn-tag {
+          position: absolute;
+          top: 0.55rem;
+          left: 50%;
+          transform: translateX(-50%);
+          width: max-content;
+          max-width: calc(100% - 1rem);
+          background: #fff7c2;
+          color: #4d2030;
+          border-radius: 999px;
+          padding: 0.18rem 0.48rem;
+          font-size: 0.52rem;
           text-transform: uppercase;
-          color: #1a1a1a;
-          text-decoration: none;
-          transition: background 0.2s, color 0.2s, border-color 0.2s;
-          width: fit-content;
+          font-weight: 900;
         }
-        .dn-btn:hover {
-          background: #e07b39;
-          border-color: #e07b39;
-          color: #fff;
-        }
-
-        .dn-rule {
-          border: none;
-          border-top: 1px solid #ebebeb;
-          margin: 4rem 0 0;
-        }
-
-        /* ── Mobile Responsive ── */
-        @media (max-width: 768px) {
-          #donation {
-            padding: 3rem 1.25rem;
-            background: #ebebeb;
-          }
-          .dn-header {
-            margin-bottom: 2rem;
-            flex-direction: column;
-            align-items: flex-start;
-          }
-          .dn-title {
-            font-size: 2.2rem;
-          }
+        @media (max-width: 760px) {
           .dn-grid {
-            gap: 1.5rem;
-            background: transparent;
-          }
-          .dn-card {
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border: 1px solid rgba(0,0,0,0.03);
-          }
-          .dn-btn {
-            width: 100%;
-            justify-content: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-          }
-          .dn-rule {
-            margin: 3rem 0 0;
+            grid-template-columns: 1fr;
+            max-width: 360px;
           }
         }
       `}</style>
 
       <section id="donation">
         <div className="dn-inner">
+          <h2 className="section-title">Donate</h2>
+          <p className="dn-quote">
+            "By engaging one's wealth in the service of the Lord, one becomes freed from karma and attains the spiritual world."
+          </p>
+          <p className="dn-credit">
+            Srimad-Bhagavatam 1.5.12 Purport<br />
+            His Divine Grace A. C. Bhaktivedanta Swami Srila Prabhupada
+          </p>
 
-          {/* Header */}
-          <div className="dn-header">
-            <div>
-              <p className="dn-eyebrow">Offer Your Devotion</p>
-              <h2 className="dn-title">
-                Get Blessings from<br />
-                Sri Sri Radha Madhava
-              </h2>
-            </div>
-            <p className="dn-desc">
-              Every contribution, big or small, is an act of devotion that sustains our temple and community.
-            </p>
-          </div>
-
-          {/* Cards */}
           <div className="dn-grid">
-            {causes.map((c, i) => (
-              <div className="dn-card" key={i}>
+            {causes.map((cause) => (
+              <article className="dn-card" key={cause.title}>
+                {cause.tag && <span className="dn-tag">{cause.tag}</span>}
                 <div className="dn-img-wrap">
-                  <img src={c.image} alt={c.title} />
+                  <img src={cause.image} alt={cause.title} loading="lazy" />
                 </div>
                 <div className="dn-body">
-                  <span className="dn-tag">{c.tag}</span>
-                  <h3 className="dn-card-title">{c.title}</h3>
-                  <p className="dn-card-desc">{c.desc}</p>
-                  <Link to="/checkout" className="dn-btn">
-                    Donate Now →
-                  </Link>
+                  <h3 className="dn-card-title">{cause.title}</h3>
+                  <p className="dn-card-desc">{cause.desc}</p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 
-          <hr className="dn-rule" />
+          <Link className="pdf-center-btn" to="/checkout">More Donations</Link>
         </div>
       </section>
     </>

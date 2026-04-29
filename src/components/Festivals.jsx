@@ -1,27 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const festivals = [
   {
-    id: 'janmashtami',
-    name: 'Sri Krishna Janmashtami',
-    date: 'August / September',
-    desc: 'The grand appearance day of Supreme Personality of Godhead, Lord Krishna. Join us for 24-hour kirtan, midnight maha-abhishek, 108 bhoga offering, and a majestic feast.',
-    image: '/images/janmashtami.png',
-  },
-  {
-    id: 'rath-yatra',
-    name: 'Jagannath Rath Yatra',
-    date: 'June / July',
-    desc: 'The ecstatic festival of chariots where the Lord of the Universe comes out of the temple to bless everyone on the streets. Accompanied by loud chanting and dancing.',
+    name: 'Grand Ratha Yatra',
+    date: '16 July 2026',
+    tag: 'Upcoming',
     image: '/images/rath_yatra.png',
   },
   {
-    id: 'radhashtami',
-    name: 'Sri Radha Ashtami',
-    date: 'September',
-    desc: 'The divine appearance day of Srimati Radharani, the eternal consort of Lord Krishna and the queen of Vrindavan. The temple is adorned with fragrant flowers.',
+    name: 'Shri Ramnavami Celebration',
+    date: '27 March 2026',
+    image: '/images/srichaitanya001901.jpg',
+  },
+  {
+    name: 'Shri Gaur Purnima Celebration',
+    date: '02 March 2026',
     image: '/images/radhashtami.png',
-  }
+  },
 ];
 
 const Festivals = () => {
@@ -29,220 +25,151 @@ const Festivals = () => {
     <>
       <style>{`
         #festivals {
-          background: #faf9f7;
-          padding: 6rem 0;
-        }
-
-        .f-container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 2rem;
-        }
-
-        .f-header {
+          background: #5a2a39;
+          color: #fff7c2;
+          padding: 3.5rem 1.4rem 5rem;
           text-align: center;
-          margin-bottom: 4rem;
         }
-
-        .f-eyebrow {
-          font-size: 0.7rem;
-          font-weight: 700;
-          letter-spacing: 0.18em;
+        .f-container {
+          max-width: 980px;
+          margin: 0 auto;
+        }
+        .section-title {
+          font-family: 'Montserrat', sans-serif;
+          font-size: clamp(1.55rem, 3vw, 2.25rem);
+          font-weight: 900;
+          line-height: 1;
+          color: #fff7c2;
+          margin: 0 0 0.65rem;
           text-transform: uppercase;
-          color: #e07b39;
-          margin-bottom: 0.75rem;
-          display: block;
         }
-
-        .f-title {
-          font-family: 'Merienda One', cursive;
-          font-size: clamp(2.2rem, 4vw, 3rem);
-          font-weight: 400;
-          color: #1a1a1a;
-          margin: 0;
-          line-height: 1.15;
+        .section-copy {
+          margin: 0 auto;
+          max-width: 620px;
+          color: rgba(255, 247, 194, 0.84);
+          font-size: 0.9rem;
+          line-height: 1.7;
         }
-
         .f-grid {
           display: grid;
-          grid-template-columns: 1fr;
-          gap: 2.5rem;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1.5rem;
+          margin: 3.1rem auto 2.7rem;
+          max-width: 720px;
         }
-
-        @media (min-width: 768px) {
-          .f-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
         .f-card {
-          position: relative;
-          background: #000;
+          display: block;
+          text-align: left;
+          text-decoration: none;
+          color: #fff7c2;
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 247, 194, 0.12);
           border-radius: 12px;
           overflow: hidden;
-          aspect-ratio: 3/4;
-          display: flex;
-          align-items: flex-end;
-          text-decoration: none;
-          group: hover;
+          transition: transform 0.2s ease, background 0.2s ease;
         }
-
+        .f-card:hover {
+          transform: translateY(-5px);
+          background: rgba(255, 255, 255, 0.12);
+          color: #fff7c2;
+        }
         .f-img {
-          position: absolute;
-          inset: 0;
           width: 100%;
-          height: 100%;
+          aspect-ratio: 1.18;
           object-fit: cover;
-          opacity: 0.7;
-          transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+          display: block;
         }
-
-        .f-card:hover .f-img {
-          transform: scale(1.06);
-          opacity: 0.5;
-        }
-
-        .f-card::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(to top, rgba(16,8,0,0.95) 0%, rgba(16,8,0,0.4) 50%, transparent 100%);
-          pointer-events: none;
-        }
-
         .f-content {
-          position: relative;
-          z-index: 2;
-          padding: 2.5rem 2rem;
-          width: 100%;
-          transform: translateY(1rem);
-          transition: transform 0.4s ease;
+          padding: 0.85rem 0.85rem 0.9rem;
         }
-
-        .f-card:hover .f-content {
-          transform: translateY(0);
-        }
-
-        .f-date {
-          display: inline-block;
-          font-family: 'Montserrat', sans-serif;
-          font-size: 0.65rem;
-          font-weight: 700;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
-          color: #e07b39;
-          margin-bottom: 0.75rem;
-          background: rgba(255,255,255,0.1);
-          padding: 0.4rem 0.8rem;
-          border-radius: 4px;
-          backdrop-filter: blur(4px);
-        }
-
         .f-name {
-          font-family: 'Merienda One', cursive;
-          font-size: 1.8rem;
-          font-weight: 400;
-          color: #fff;
-          margin: 0 0 1rem;
-          line-height: 1.2;
+          color: #fff7c2;
+          font-size: 0.92rem;
+          font-weight: 800;
+          line-height: 1.25;
+          margin: 0 0 0.35rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
-
-        .f-desc {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 0.85rem;
-          color: rgba(245,237,228,0.8);
-          line-height: 1.6;
-          margin: 0 0 1.5rem;
-          opacity: 0;
-          transform: translateY(10px);
-          transition: opacity 0.4s ease, transform 0.4s ease;
+        .f-date-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 0.45rem;
         }
-
-        .f-card:hover .f-desc {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .f-btn {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 0.75rem;
+        .f-date {
+          color: rgba(255, 247, 194, 0.75);
+          font-size: 0.67rem;
           font-weight: 700;
-          letter-spacing: 0.1em;
+        }
+        .f-tag {
+          background: #d7df77;
+          color: #4b1f2e;
+          border-radius: 999px;
+          padding: 0.16rem 0.42rem;
+          font-size: 0.55rem;
+          font-weight: 900;
           text-transform: uppercase;
-          color: #fff;
-          background: transparent;
-          border: 1.5px solid rgba(255,255,255,0.3);
-          padding: 0.6rem 1.2rem;
-          border-radius: 4px;
-          cursor: pointer;
-          transition: background 0.3s, border-color 0.3s;
         }
-
-        .f-card:hover .f-btn {
-          border-color: #e07b39;
-          background: #e07b39;
+        .pdf-center-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 42px;
+          padding: 0.75rem 1.35rem;
+          background: #f6d47b;
+          border: 1px solid #f6d47b;
+          border-radius: 7px;
+          color: #4d2030;
+          font-size: 0.82rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          text-decoration: none;
         }
-
-        /* ── Mobile Responsive ── */
-        @media (max-width: 768px) {
-          #festivals {
-            padding: 3rem 1.25rem;
-          }
-          .f-header {
-            margin-bottom: 2rem;
-          }
-          .f-title {
-            font-size: 2.2rem;
-          }
-          .f-container {
-            padding: 0;
-          }
+        .pdf-center-btn:hover {
+          background: #ffe495;
+          color: #4d2030;
+        }
+        @media (max-width: 760px) {
+          #festivals { padding-top: 3rem; }
           .f-grid {
-            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            max-width: 360px;
+            margin-top: 2rem;
           }
-          .f-desc {
-            opacity: 1; /* Keep visible on mobile always as hover isn't natural */
-            transform: translateY(0);
-          }
-          .f-card {
-            aspect-ratio: auto;
-            min-height: 480px; 
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-          }
-          .f-content {
-            transform: translateY(0);
-          }
-          .f-btn {
-            width: 100%;
-            padding: 1rem;
-            font-size: 0.9rem;
-            text-align: center;
-            background: rgba(0,0,0,0.3);
-          }
+          .f-name { white-space: normal; }
         }
       `}</style>
 
       <section id="festivals">
         <div className="f-container">
-          <div className="f-header">
-            <span className="f-eyebrow">Celebrations</span>
-            <h2 className="f-title">Grand Festivals</h2>
-          </div>
+          <h2 className="section-title">Events &amp; Festivals</h2>
+          <p className="section-copy">
+            Stay connected with upcoming festivals and relive the past celebrations.
+          </p>
 
           <div className="f-grid">
-            {festivals.map((fest) => (
-              <a href="/checkout" className="f-card" key={fest.id}>
-                <img src={fest.image} alt={fest.name} className="f-img" loading="lazy" />
+            {festivals.map((festival) => (
+              <Link to="/checkout" className="f-card" key={festival.name}>
+                <img
+                  className="f-img"
+                  src={festival.image}
+                  alt={festival.name}
+                  loading="lazy"
+                />
                 <div className="f-content">
-                  <span className="f-date">{fest.date}</span>
-                  <h3 className="f-name">{fest.name}</h3>
-                  <p className="f-desc">{fest.desc}</p>
-                  <button className="f-btn">
-                    Sponsor Festival
-                  </button>
+                  <h3 className="f-name">{festival.name}</h3>
+                  <div className="f-date-row">
+                    <span className="f-date">{festival.date}</span>
+                    {festival.tag && <span className="f-tag">{festival.tag}</span>}
+                  </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
+
+          <Link className="pdf-center-btn" to="/checkout">Explore Events</Link>
         </div>
       </section>
     </>
