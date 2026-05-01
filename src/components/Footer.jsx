@@ -16,12 +16,10 @@ const legal = [
   { label: 'Disclaimer', href: '/disclaimer' },
   { label: 'Donate via UPI', href: 'https://rzp.io/l/uMSGTo2yj' },
 ];
-
 const socials = [
-  { icon: 'fab fa-twitter', href: 'https://twitter.com/PiyushAryanPA', label: 'Twitter' },
-  { icon: 'fab fa-instagram', href: 'https://www.instagram.com/piyush_.aryan', label: 'Instagram' },
-  { icon: 'fab fa-facebook', href: 'https://facebook.com/PiyushAryan.pa', label: 'Facebook' },
-  { icon: 'fab fa-linkedin', href: 'https://www.linkedin.com/in/piyush-aryan', label: 'LinkedIn' },
+  { icon: 'fab fa-instagram', href: 'https://www.instagram.com/iskconhazaribaghofficial', label: 'Instagram' },
+  { icon: 'fab fa-facebook', href: 'https://www.facebook.com/iskconhazaribag', label: 'Facebook' },
+  { icon: 'fab fa-youtube', href: 'https://www.youtube.com/@ISKCONHAZARIBAGH', label: 'YouTube' },
 ];
 
 const Footer = () => {

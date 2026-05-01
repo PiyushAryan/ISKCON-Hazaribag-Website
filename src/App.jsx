@@ -17,6 +17,10 @@ import Disclaimer from './pages/Disclaimer';
 import Prabhupada from './pages/Prabhupada';
 import Yatras from './pages/Yatras';
 import Contact from './pages/Contact';
+import Gallery from './pages/Gallery';
+import LifeMembership from './pages/LifeMembership';
+
+import FloatingMenu from './components/FloatingMenu';
 
 // Main homepage assembled from all sections
 function HomePage() {
@@ -62,7 +66,10 @@ function App() {
         <Route path="/founder-acharya" element={<Prabhupada />} />
         <Route path="/yatras" element={<Yatras />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/life-membership" element={<LifeMembership />} />
       </Routes>
+      <FloatingMenu />
     </BrowserRouter>
   );
 }

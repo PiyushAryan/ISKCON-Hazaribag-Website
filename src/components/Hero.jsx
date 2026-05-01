@@ -232,8 +232,8 @@ const Hero = () => {
               Founder Acharya: His Divine Grace A. C. Bhaktivedanta Swami Srila Prabhupada
             </p>
             <div className="hero-status">
-              <span className="hero-dot" />
-              <span>Temple Status: <strong>Open till 04:30 PM</strong></span>
+              <span className="hero-dot animate-pulse" />
+              <span>Temple Status: <strong>Open till 08:30 PM</strong></span>
             </div>
             <div className="hero-actions">
               <a className="pdf-btn secondary" href="#schedule" onClick={toggleSchedule}>View Schedule</a>

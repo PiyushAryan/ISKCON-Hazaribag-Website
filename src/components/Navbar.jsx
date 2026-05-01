@@ -20,9 +20,15 @@ const navItems = [
     id: 'mission',
     dropdownItems: [
       { label: 'Deities', href: '#' },
-      { label: 'Timings', href: '#' },
-      { label: 'Festivals', href: '#' },
-      { label: 'Gallery', href: '#' }
+      { label: 'Gallery', href: '/gallery' }
+    ]
+  },
+  {
+    label: 'E-Books',
+    href: '#',
+    dropdownItems: [
+      { label: 'Bhagavad Gita', href: 'https://vedabase.io/en/library/bg/' },
+      { label: 'Library', href: 'https://vedabase.io/en/library/' }
     ]
   },
   { label: 'Store', href: '#' },
@@ -299,7 +305,11 @@ const Navbar = () => {
                 {item.dropdownItems && activeDropdown === item.label && (
                   <div className="nb-dd-menu">
                     {item.dropdownItems.map(ddItem => (
-                       <Link key={ddItem.label} className="nb-dd-item" to={ddItem.href} onClick={() => setActiveDropdown(null)}>{ddItem.label}</Link>
+                      ddItem.href.startsWith('http') ? (
+                        <a key={ddItem.label} className="nb-dd-item" href={ddItem.href} target="_blank" rel="noreferrer" onClick={() => setActiveDropdown(null)}>{ddItem.label}</a>
+                      ) : (
+                        <Link key={ddItem.label} className="nb-dd-item" to={ddItem.href} onClick={() => setActiveDropdown(null)}>{ddItem.label}</Link>
+                      )
                     ))}
                   </div>
                 )}
@@ -342,9 +352,15 @@ const Navbar = () => {
                 {item.dropdownItems && (
                   <div style={{ marginLeft: '1rem', borderLeft: '1px solid rgba(246, 212, 123, 0.18)', paddingLeft: '0.5rem', marginBottom: '0.5rem' }}>
                     {item.dropdownItems.map(ddItem => (
-                      <Link key={ddItem.label} className="nb-mobile-link" style={{ borderBottom: 'none', padding: '0.6rem 0.7rem', color: 'rgba(255, 247, 194, 0.8)' }} to={ddItem.href} onClick={() => setMenuOpen(false)}>
-                        {ddItem.label}
-                      </Link>
+                      ddItem.href.startsWith('http') ? (
+                        <a key={ddItem.label} className="nb-mobile-link" style={{ borderBottom: 'none', padding: '0.6rem 0.7rem', color: 'rgba(255, 247, 194, 0.8)' }} href={ddItem.href} target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>
+                          {ddItem.label}
+                        </a>
+                      ) : (
+                        <Link key={ddItem.label} className="nb-mobile-link" style={{ borderBottom: 'none', padding: '0.6rem 0.7rem', color: 'rgba(255, 247, 194, 0.8)' }} to={ddItem.href} onClick={() => setMenuOpen(false)}>
+                          {ddItem.label}
+                        </Link>
+                      )
                     ))}
                   </div>
                 )}
