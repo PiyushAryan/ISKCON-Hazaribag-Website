@@ -116,9 +116,11 @@ const FloatingMenu = () => {
             right: 1.5rem;
           }
           .fm-toggle {
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
+            width: 75px;
+            height: auto;
+          }
+          .fm-toggle.open {
+            transform: scale(1.15);
           }
         }
       `}</style>
