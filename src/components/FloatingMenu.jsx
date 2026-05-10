@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const FloatingMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  if (location.pathname === '/checkout') {
+    return null;
+  }
 
   return (
     <>

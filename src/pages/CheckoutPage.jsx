@@ -1,14 +1,34 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const presets = [501, 1001, 2100, 5100];
 
+const donationItems = [
+  'Anna Daan',
+  'Sadhu Bhojan',
+  'Kitchen Seva',
+  'Gau Seva',
+  'Deity Seva',
+  'Ekadashi Seva',
+  'Gita Seva',
+  'Gupta Daan',
+  'Special Daan',
+];
+
 const CheckoutPage = () => {
+  const location = useLocation();
   const [loading, setLoading] = useState(false);
   const [activeAmount, setActiveAmount] = useState(null);
+  const [currentAmount, setCurrentAmount] = useState(0);
+  const [wants80G, setWants80G] = useState(false);
+  const [step, setStep] = useState(1);
   const fullnameRef = useRef();
   const telRef = useRef();
+  const emailRef = useRef();
+  const panRef = useRef();
+  const addressRef = useRef();
   const amountRef = useRef();
+  const typeRef = useRef();
 
   async function createOrder(donationAmount) {
     const response = await fetch(
@@ -34,7 +54,7 @@ const CheckoutPage = () => {
         amount: donationAmount * 100,
         currency: 'INR',
         name: 'ISKCON Hazaribag',
-        description: 'Donation – Sri Sri Radha Madhava',
+        description: `Donation – ${typeRef.current.value}`,
         image: 'https://www.iskconmumbai.com/bi_theme_snippets/static/src/img/logo-black-header.png',
         order_id,
         handler(response) {
@@ -47,9 +67,14 @@ const CheckoutPage = () => {
         },
         prefill: {
           name: fullnameRef.current.value,
+          email: emailRef.current.value,
           contact: telRef.current.value,
         },
-        notes: { address: 'ISKCON Hazaribag, Jharkhand' },
+        notes: { 
+          address: addressRef.current.value, 
+          purpose: typeRef.current.value,
+          pan: panRef.current?.value || 'Not Provided'
+        },
         theme: { color: '#582739' },
       };
       new window.Razorpay(options).open();
@@ -64,6 +89,7 @@ const CheckoutPage = () => {
   function handlePreset(val) {
     setActiveAmount(val);
     amountRef.current.value = val;
+    setCurrentAmount(val);
   }
 
   return (
@@ -120,9 +146,9 @@ const CheckoutPage = () => {
         }
         @media (min-width: 768px) {
           .co-right {
-            flex: 0 0 480px;
-            max-width: 480px;
-            padding: 3.5rem;
+            flex: 0 0 540px;
+            max-width: 540px;
+            padding: 3.5rem 4rem;
           }
         }
 
@@ -130,7 +156,7 @@ const CheckoutPage = () => {
         .co-logo {
           width: 48px;
           height: auto;
-          margin-bottom: 2.5rem;
+          margin-bottom: 2rem;
         }
 
         /* ── Heading ── */
@@ -151,6 +177,20 @@ const CheckoutPage = () => {
         }
 
         /* ── Field ── */
+        .co-form-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0 1.5rem;
+        }
+        @media (min-width: 500px) {
+          .co-form-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+          .co-full {
+            grid-column: 1 / -1;
+          }
+        }
+
         .co-label {
           display: block;
           font-size: 0.7rem;
@@ -158,7 +198,7 @@ const CheckoutPage = () => {
           letter-spacing: 0.1em;
           text-transform: uppercase;
           color: #bbb;
-          margin-bottom: 0.45rem;
+          margin-bottom: 0.4rem;
         }
         .co-input {
           width: 100%;
@@ -172,10 +212,21 @@ const CheckoutPage = () => {
           background: transparent;
           outline: none;
           transition: border-color 0.2s;
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
         }
         .co-input::placeholder { color: #ccc; }
         .co-input:focus { border-color: #582739; }
+        
+        select.co-input {
+          cursor: pointer;
+          appearance: none;
+          -webkit-appearance: none;
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right center;
+          background-size: 16px;
+          padding-right: 2rem;
+        }
 
         /* ── Preset chips ── */
         .co-chips {
@@ -185,7 +236,7 @@ const CheckoutPage = () => {
           margin-bottom: 1.25rem;
         }
         .co-chip {
-          padding: 0.55rem 0;
+          padding: 0.6rem 0;
           border: 1.5px solid #e5e5e5;
           border-radius: 6px;
           background: #fff;
@@ -211,7 +262,7 @@ const CheckoutPage = () => {
         .co-btn {
           width: 100%;
           padding: 0.9rem;
-          margin-top: 2rem;
+          margin-top: 1.5rem;
           background: #582739;
           border: none;
           border-radius: 6px;
@@ -240,14 +291,14 @@ const CheckoutPage = () => {
           margin-top: 2rem;
           font-size: 0.7rem;
           color: #ccc;
-          line-height: 1.7;
+          line-height: 1.6;
           text-align: center;
         }
         .co-meta a { color: #582739; text-decoration: none; font-weight: 600; }
         .co-back {
           display: inline-block;
           text-align: center;
-          margin-top: 1.5rem;
+          margin-top: 1rem;
           padding: 0.5rem;
           font-size: 0.88rem;
           color: #bbb;
@@ -290,63 +341,162 @@ const CheckoutPage = () => {
           <p className="co-subtitle">Sri Sri Radha Madhava Temple</p>
 
           <form onSubmit={initiatePayment}>
-            <label className="co-label" htmlFor="fullname">Full Name</label>
-            <input
-              ref={fullnameRef}
-              className="co-input"
-              type="text"
-              id="fullname"
-              placeholder="Your name"
-              required
-            />
+            {/* --- STEP 1 --- */}
+            <div style={{ display: step === 1 ? 'block' : 'none' }}>
+              <label className="co-label">Select Amount</label>
+              <div className="co-chips">
+                {presets.map((val) => (
+                  <button
+                    key={val}
+                    type="button"
+                    className={`co-chip${activeAmount === val ? ' active' : ''}`}
+                    onClick={() => handlePreset(val)}
+                  >
+                    ₹{val.toLocaleString('en-IN')}
+                  </button>
+                ))}
+              </div>
 
-            <label className="co-label" htmlFor="tel">Phone Number</label>
-            <input
-              ref={telRef}
-              className="co-input"
-              type="tel"
-              id="tel"
-              placeholder="+91 XXXXX XXXXX"
-              required
-            />
+              <label className="co-label" htmlFor="donation-amount">Custom Amount (₹)</label>
+              <input
+                ref={amountRef}
+                className="co-input"
+                type="number"
+                id="donation-amount"
+                placeholder="Enter amount"
+                min="1"
+                onChange={(e) => {
+                  setActiveAmount(null);
+                  setCurrentAmount(Number(e.target.value) || 0);
+                }}
+              />
 
-            <label className="co-label">Select Amount</label>
-            <div className="co-chips">
-              {presets.map((val) => (
-                <button
-                  key={val}
-                  type="button"
-                  className={`co-chip${activeAmount === val ? ' active' : ''}`}
-                  onClick={() => handlePreset(val)}
-                >
-                  ₹{val.toLocaleString('en-IN')}
-                </button>
-              ))}
+              <label className="co-label" htmlFor="donation-type">Donation Purpose</label>
+              <select
+                ref={typeRef}
+                className="co-input"
+                id="donation-type"
+                required
+                defaultValue={location.state?.type || 'Anna Daan'}
+              >
+                {donationItems.map((item) => (
+                  <option key={item} value={item}>{item}</option>
+                ))}
+              </select>
+
+              <button 
+                type="button" 
+                className="co-btn" 
+                onClick={() => {
+                  if (currentAmount >= 1) setStep(2);
+                  else alert('Please select or enter a valid amount.');
+                }}
+              >
+                Continue to Details
+              </button>
             </div>
 
-            <label className="co-label" htmlFor="donation-amount">Custom Amount (₹)</label>
-            <input
-              ref={amountRef}
-              className="co-input"
-              type="number"
-              id="donation-amount"
-              placeholder="Enter amount"
-              min="1"
-              onChange={() => setActiveAmount(null)}
-            />
+            {/* --- STEP 2 --- */}
+            <div style={{ display: step === 2 ? 'block' : 'none' }}>
+              <div className="co-form-grid">
+                <div>
+                  <label className="co-label" htmlFor="fullname">Full Name</label>
+                  <input
+                    ref={fullnameRef}
+                    className="co-input"
+                    type="text"
+                    id="fullname"
+                    placeholder="Your name"
+                    required={step === 2}
+                  />
+                </div>
 
-            <button type="submit" className="co-btn" disabled={loading}>
-            {loading ? (
-                <>
-                  <svg style={{ width: 16, height: 16, animation: 'spin 0.7s linear infinite' }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <circle cx="12" cy="12" r="10" strokeOpacity="0.25" />
-                    <path d="M12 2a10 10 0 0 1 10 10" />
-                    <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-                  </svg>
-                  Processing…
-                </>
-              ) : 'Donate Now'}
-            </button>
+                <div>
+                  <label className="co-label" htmlFor="tel">Phone Number</label>
+                  <input
+                    ref={telRef}
+                    className="co-input"
+                    type="tel"
+                    id="tel"
+                    placeholder="+91 XXXXX XXXXX"
+                    required={step === 2}
+                  />
+                </div>
+
+                <div className="co-full">
+                  <label className="co-label" htmlFor="address">Complete Address</label>
+                  <input
+                    ref={addressRef}
+                    className="co-input"
+                    type="text"
+                    id="address"
+                    placeholder="Your full address with pincode"
+                    required={step === 2}
+                  />
+                </div>
+
+                <div>
+                  <label className="co-label" htmlFor="email">Email Address</label>
+                  <input
+                    ref={emailRef}
+                    className="co-input"
+                    type="email"
+                    id="email"
+                    placeholder="your.email@example.com"
+                    required={step === 2}
+                  />
+                </div>
+
+                {currentAmount > 50000 && (
+                  <div>
+                    <label className="co-label" htmlFor="wants-80g">80G Tax Exemption</label>
+                    <select
+                      className="co-input"
+                      id="wants-80g"
+                      value={wants80G ? "yes" : "no"}
+                      onChange={(e) => setWants80G(e.target.value === "yes")}
+                    >
+                      <option value="no">No, I do not need it</option>
+                      <option value="yes">Yes, I want to avail it</option>
+                    </select>
+                  </div>
+                )}
+
+                {currentAmount > 50000 && wants80G && (
+                  <div className="co-full">
+                    <label className="co-label" htmlFor="pan">PAN Number (Required for 80G)</label>
+                    <input
+                      ref={panRef}
+                      className="co-input"
+                      type="text"
+                      id="pan"
+                      placeholder="ABCDE1234F"
+                      required={step === 2 && wants80G}
+                      style={{ textTransform: 'uppercase' }}
+                    />
+                  </div>
+                )}
+              </div>
+
+              <button type="submit" className="co-btn" disabled={loading}>
+                {loading ? (
+                  <>
+                    <svg style={{ width: 16, height: 16, animation: 'spin 0.7s linear infinite' }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <circle cx="12" cy="12" r="10" strokeOpacity="0.25" />
+                      <path d="M12 2a10 10 0 0 1 10 10" />
+                      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+                    </svg>
+                    Processing…
+                  </>
+                ) : `Donate ₹${currentAmount.toLocaleString('en-IN')}`}
+              </button>
+
+              <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+                <button type="button" onClick={() => setStep(1)} style={{ background: 'none', border: 'none', color: '#bbb', cursor: 'pointer', fontSize: '0.8rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  ← Back to Amount
+                </button>
+              </div>
+            </div>
           </form>
 
           <div className="co-secure">
@@ -357,9 +507,7 @@ const CheckoutPage = () => {
           </div>
 
           <p className="co-meta">
-            80G tax exemption available · Cert. Ref. XXXXXXXPF20219<br />
-            Email PAN + address for receipt:{' '}
-            <a href="mailto:iskconhazaribagh1@gmail.com">iskconhazaribagh1@gmail.com</a>
+            80G tax exemption available · Cert. Ref. XXXXXXXPF20219
           </p>
 
           <Link to="/" className="co-back">← Back to Home</Link>

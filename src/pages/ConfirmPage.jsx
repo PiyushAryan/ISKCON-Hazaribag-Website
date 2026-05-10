@@ -20,111 +20,100 @@ const ConfirmPage = () => {
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         .cp-root {
-          display: flex;
           min-height: 100vh;
           font-family: 'Montserrat', sans-serif;
+          background: #fff;
+          display: flex;
+          flex-direction: column;
         }
 
-        /* ── Left panel ── */
-        .cp-left {
-          flex: 1;
+        /* ── Hero Image Section ── */
+        .cp-hero {
+          width: 100%;
+          height: 35vh;
+          min-height: 250px;
           background-image: url('/images/iskcon-rm.jpg');
           background-size: cover;
           background-position: center;
           position: relative;
-          display: none;
         }
-        .cp-left::after {
+        .cp-hero::after {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(to right, rgba(34,1,1,0.55) 0%, rgba(34,1,1,0.2) 100%);
+          background: linear-gradient(to bottom, rgba(34,1,1,0.2) 0%, rgba(34,1,1,0.6) 100%);
         }
-        .cp-left-label {
+        .cp-hero-label {
           position: absolute;
-          bottom: 2.5rem;
-          left: 2.5rem;
+          bottom: 2rem;
+          left: 50%;
+          transform: translateX(-50%);
           z-index: 1;
-          color: rgba(255,255,255,0.75);
-          font-size: 0.75rem;
+          color: rgba(255,255,255,0.9);
+          font-size: 0.8rem;
           font-weight: 600;
           letter-spacing: 0.15em;
           text-transform: uppercase;
         }
-        @media (min-width: 768px) {
-          .cp-left { display: block; }
-        }
 
-        /* ── Right panel ── */
-        .cp-right {
-          flex: 0 0 100%;
-          max-width: 100%;
-          background: #fff;
+        /* ── Content Section ── */
+        .cp-content {
+          flex: 1;
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          padding: 3rem 2rem;
-        }
-        @media (min-width: 768px) {
-          .cp-right {
-            flex: 0 0 480px;
-            max-width: 480px;
-            padding: 3.5rem;
-          }
+          align-items: center;
+          padding: 4rem 2rem;
+          max-width: 600px;
+          margin: 0 auto;
+          width: 100%;
         }
 
         /* ── Logo ── */
         .cp-logo {
-          width: 44px;
+          width: 52px;
           height: auto;
-          margin-bottom: 3rem;
-        }
-
-        /* ── Icon ring ── */
-        .cp-icon-ring {
-          width: 64px;
-          height: 64px;
-          border-radius: 50%;
-          border: 1.5px solid #582739;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 2rem;
-        }
-        .cp-icon-ring svg {
-          color: #582739;
+          margin-bottom: 2.5rem;
         }
 
         /* ── Headings ── */
         .cp-kicker {
-          font-size: 0.7rem;
+          font-size: 0.75rem;
           font-weight: 700;
-          letter-spacing: 0.18em;
+          letter-spacing: 0.15em;
           text-transform: uppercase;
           color: #582739;
           margin-bottom: 0.5rem;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+        }
+        .cp-kicker svg {
+          color: #4caf50;
         }
         .cp-title {
           font-family: 'Moon Dance', cursive;
-          font-size: 2.6rem;
+          font-size: 3.2rem;
           font-weight: 700;
           color: #1a1a1a;
           line-height: 1.15;
-          margin-bottom: 0.5rem;
+          margin-bottom: 1rem;
+          text-align: center;
         }
         .cp-lead {
-          font-size: 0.85rem;
-          color: #aaa;
+          font-size: 0.95rem;
+          color: #666;
           line-height: 1.7;
-          margin-bottom: 2.5rem;
+          margin-bottom: 3rem;
           font-weight: 500;
+          text-align: center;
         }
 
         /* ── Details table ── */
         .cp-table {
           width: 100%;
           border-collapse: collapse;
-          margin-bottom: 2.5rem;
+          margin-bottom: 3rem;
         }
         .cp-table tr {
           border-bottom: 1px solid #f0f0f0;
@@ -133,31 +122,32 @@ const ConfirmPage = () => {
           border-bottom: none;
         }
         .cp-table td {
-          padding: 0.85rem 0;
-          font-size: 0.82rem;
+          padding: 1rem 0;
+          font-size: 0.9rem;
           font-family: 'Montserrat', sans-serif;
         }
         .cp-table td:first-child {
-          color: #bbb;
+          color: #888;
           font-weight: 600;
-          letter-spacing: 0.06em;
+          letter-spacing: 0.05em;
           text-transform: uppercase;
-          font-size: 0.68rem;
+          font-size: 0.75rem;
           width: 45%;
         }
         .cp-table td:last-child {
           color: #1a1a1a;
-          font-weight: 600;
+          font-weight: 700;
+          text-align: right;
         }
         .cp-status {
           display: inline-flex;
           align-items: center;
-          gap: 0.35rem;
+          gap: 0.4rem;
           color: #4caf50 !important;
         }
         .cp-status-dot {
-          width: 7px;
-          height: 7px;
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
           background: #4caf50;
           flex-shrink: 0;
@@ -166,106 +156,94 @@ const ConfirmPage = () => {
         /* ── Buttons ── */
         .cp-actions {
           display: flex;
-          gap: 0.75rem;
-          flex-wrap: wrap;
+          gap: 1rem;
+          width: 100%;
+          flex-direction: column;
+        }
+        @media (min-width: 500px) {
+          .cp-actions {
+            flex-direction: row;
+          }
         }
         .cp-btn-primary {
           flex: 1;
-          min-width: 120px;
-          padding: 0.9rem 1.2rem;
+          padding: 1rem;
           background: #582739;
           border: 1.5px solid transparent;
-          border-radius: 4px;
+          border-radius: 8px;
           font-family: 'Montserrat', sans-serif;
           font-size: 0.85rem;
           font-weight: 700;
           letter-spacing: 0.08em;
-          line-height: 1.5;
           text-transform: uppercase;
           color: #fff7c2;
           text-decoration: none;
           text-align: center;
           cursor: pointer;
           transition: background 0.2s, color 0.2s, transform 0.15s;
-          display: flex;
-          align-items: center;
-          justify-content: center;
         }
-        .cp-btn-primary:hover { background: #f6d47b; color: #4d2030; transform: translateY(-1px); }
+        .cp-btn-primary:hover { background: #f6d47b; color: #4d2030; transform: translateY(-2px); }
 
         .cp-btn-outline {
           flex: 1;
-          min-width: 120px;
-          padding: 0.9rem 1.2rem;
+          padding: 1rem;
           background: transparent;
           border: 1.5px solid #e5e5e5;
-          border-radius: 4px;
+          border-radius: 8px;
           font-family: 'Montserrat', sans-serif;
           font-size: 0.85rem;
           font-weight: 700;
           letter-spacing: 0.08em;
-          line-height: 1.5;
           text-transform: uppercase;
           color: #555;
           text-decoration: none;
           text-align: center;
           cursor: pointer;
           transition: border-color 0.2s, color 0.2s, transform 0.15s;
-          display: flex;
-          align-items: center;
-          justify-content: center;
         }
-        .cp-btn-outline:hover { border-color: #ccc; color: #1a1a1a; transform: translateY(-1px); }
+        .cp-btn-outline:hover { border-color: #ccc; color: #1a1a1a; transform: translateY(-2px); }
 
         /* ── Footer note ── */
         .cp-note {
-          margin-top: 2rem;
-          font-size: 0.7rem;
-          color: #ccc;
+          margin-top: 3rem;
+          font-size: 0.75rem;
+          color: #aaa;
           line-height: 1.7;
           text-align: center;
-          padding-top: 1.5rem;
-          border-top: 1px solid #f0f0f0;
         }
-        .cp-note a { color: #582739; text-decoration: none; font-weight: 600; }
 
         /* ── Print Styles (Receipt Mode) ── */
         @media print {
-          .cp-left, .cp-actions { display: none !important; }
-          .cp-root { display: block; background: #fff; }
-          .cp-right { max-width: 100%; padding: 0; }
+          .cp-hero, .cp-actions { display: none !important; }
+          .cp-root { background: #fff; padding: 0; }
+          .cp-content { max-width: 100%; padding: 0; }
           @page { margin: 2cm; }
           body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-          .cp-icon-ring { border-color: #000; }
-          .cp-icon-ring svg { color: #000; }
           .cp-kicker, .cp-title, .cp-status { color: #000 !important; }
           .cp-status-dot { filter: grayscale(1); }
-          .cp-note { text-align: left; }
         }
       `}</style>
 
       <div className="cp-root">
-        {/* Left — temple image */}
-        <div className="cp-left">
-          <span className="cp-left-label">ISKCON Hazaribag</span>
+        {/* Full Width Hero Image */}
+        <div className="cp-hero">
+          <div className="cp-hero-label">ISKCON Hazaribag</div>
         </div>
 
-        {/* Right — confirmation */}
-        <div className="cp-right">
+        {/* Content Section (No Box) */}
+        <div className="cp-content">
           <img
             src="https://www.iskconmumbai.com/bi_theme_snippets/static/src/img/logo-black-header.png"
             alt="ISKCON"
             className="cp-logo"
           />
 
-          {/* Check icon */}
-          <div className="cp-icon-ring">
-            <svg width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+          <p className="cp-kicker">
+            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
               <polyline points="20 6 9 17 4 12" />
             </svg>
-          </div>
-
-          <p className="cp-kicker">Donation Confirmed</p>
+            Donation Confirmed
+          </p>
           <h1 className="cp-title">!! Hare Krishna !!</h1>
           <p className="cp-lead">
             Your offering has been received. May Sri Sri Radha Madhava shower you with their blessings.
@@ -305,8 +283,7 @@ const ConfirmPage = () => {
           </div>
 
           <p className="cp-note">
-            80G exemption available · For receipt email PAN &amp; address to{' '}
-            <a href="mailto:iskconhazaribagh1@gmail.com">iskconhazaribagh1@gmail.com</a>
+            80G tax exemption available · Keep this reference for your records.
           </p>
         </div>
       </div>

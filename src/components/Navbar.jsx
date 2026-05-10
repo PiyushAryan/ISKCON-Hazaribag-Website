@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
+const ChevronDown = () => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '4px', marginTop: '2px' }}>
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </svg>
+);
+
 const donationItems = [
   'Anna Daan',
   'Sadhu Bhojan',
@@ -294,11 +300,11 @@ const Navbar = () => {
               >
                 {item.id ? (
                   <a className="nb-link" href={`#${item.id}`} onClick={(event) => handleNav(event, item.id)}>
-                    {item.label} {item.dropdownItems && <span style={{fontSize: '0.6rem', marginLeft: '0.3rem'}}>▼</span>}
+                    {item.label} {item.dropdownItems && <ChevronDown />}
                   </a>
                 ) : (
                   <Link className="nb-link" to={item.href} onClick={() => { setDonateOpen(false); setActiveDropdown(null); }}>
-                    {item.label} {item.dropdownItems && <span style={{fontSize: '0.6rem', marginLeft: '0.3rem'}}>▼</span>}
+                    {item.label} {item.dropdownItems && <ChevronDown />}
                   </Link>
                 )}
                 
@@ -324,7 +330,7 @@ const Navbar = () => {
               {donateOpen && (
                 <div className="nb-dd-menu">
                   {donationItems.map((item) => (
-                    <Link key={item} className="nb-dd-item" to="/checkout" onClick={() => setDonateOpen(false)}>{item}</Link>
+                    <Link key={item} className="nb-dd-item" to="/checkout" state={{ type: item }} onClick={() => setDonateOpen(false)}>{item}</Link>
                   ))}
                 </div>
               )}
@@ -369,7 +375,7 @@ const Navbar = () => {
             <Link className="nb-mobile-link" to="/checkout" onClick={() => setMenuOpen(false)}>Donate</Link>
             <p className="nb-mobile-heading">Donation Seva</p>
             {donationItems.map((item) => (
-              <Link key={item} className="nb-mobile-link" to="/checkout" onClick={() => setMenuOpen(false)}>{item}</Link>
+              <Link key={item} className="nb-mobile-link" to="/checkout" state={{ type: item }} onClick={() => setMenuOpen(false)}>{item}</Link>
             ))}
           </div>
         </div>
