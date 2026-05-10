@@ -19,6 +19,7 @@ import Yatras from './pages/Yatras';
 import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
 import LifeMembership from './pages/LifeMembership';
+import NotFoundPage from './pages/NotFoundPage';
 
 import FloatingMenu from './components/FloatingMenu';
 
@@ -68,6 +69,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/life-membership" element={<LifeMembership />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <FloatingMenu />
     </BrowserRouter>
