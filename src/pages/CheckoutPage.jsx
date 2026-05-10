@@ -62,6 +62,7 @@ const CheckoutPage = () => {
             payment_id: response.razorpay_payment_id,
             amount: donationAmount,
             status: 'Successful',
+            wants_80g: wants80G ? 'yes' : 'no',
           }).toString();
           window.location.href = `/confirm?${params}`;
         },

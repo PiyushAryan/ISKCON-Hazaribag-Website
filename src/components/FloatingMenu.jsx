@@ -5,7 +5,7 @@ const FloatingMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  if (location.pathname === '/checkout') {
+  if (['/checkout', '/confirm'].includes(location.pathname)) {
     return null;
   }
 
