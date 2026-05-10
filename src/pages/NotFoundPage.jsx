@@ -15,150 +15,130 @@ const NotFoundPage = () => {
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         .nf-root {
-          display: flex;
+          position: relative;
           min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           font-family: 'Montserrat', sans-serif;
-          background: #fff;
-        }
-
-        .nf-left {
-          flex: 1;
           background-image: url('/images/iskcon-rm.jpg');
           background-size: cover;
           background-position: center;
-          position: relative;
-          display: none;
+          padding: 2rem;
         }
 
-        .nf-left::after {
+        .nf-root::before {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(to right, rgba(34,1,1,0.58) 0%, rgba(34,1,1,0.22) 100%);
+          background: linear-gradient(
+            to bottom,
+            rgba(20,2,2,0.55) 0%,
+            rgba(20,2,2,0.72) 60%,
+            rgba(20,2,2,0.85) 100%
+          );
         }
 
-        .nf-left::before {
-          content: '';
-          position: absolute;
-          inset: 1.5rem;
+        .nf-inner {
+          position: relative;
           z-index: 1;
-          border: 1px solid rgba(255,255,255,0.32);
-          border-radius: 8px;
-          pointer-events: none;
+          text-align: center;
+          max-width: 480px;
+          width: 100%;
+          background: rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          border-radius: 12px;
+          padding: 3rem 2.5rem;
         }
 
-        .nf-left-content {
-          position: absolute;
-          left: 2.5rem;
-          right: 2.5rem;
-          bottom: 2.5rem;
-          z-index: 1;
-          color: #fff;
-        }
-
-        .nf-left-label {
-          display: block;
-          color: rgba(255,255,255,0.8);
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
-          margin-bottom: 1rem;
-        }
-
-        .nf-left-title {
-          max-width: 440px;
-          color: rgba(255,255,255,0.94);
-          font-size: clamp(2rem, 4vw, 3.6rem);
-          font-weight: 300;
-          line-height: 1.05;
-          letter-spacing: -0.01em;
-        }
-
-        @media (min-width: 768px) {
-          .nf-left { display: block; }
-        }
-
-        .nf-right {
-          flex: 0 0 100%;
-          max-width: 100%;
-          background: #fff;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding: 3rem 2rem;
-          overflow-y: auto;
-        }
-
-        @media (min-width: 768px) {
-          .nf-right {
-            flex: 0 0 540px;
-            max-width: 540px;
-            padding: 3.5rem 4rem;
+        @media (max-width: 520px) {
+          .nf-inner {
+            padding: 2.5rem 1.5rem;
           }
         }
 
         .nf-logo {
-          width: 48px;
+          width: 52px;
           height: auto;
-          margin-bottom: 2rem;
+          margin-bottom: 2.5rem;
+          filter: brightness(0) invert(1);
+          opacity: 0.9;
         }
 
         .nf-code {
-          font-size: clamp(4.5rem, 18vw, 7rem);
+          font-size: clamp(6rem, 22vw, 10rem);
           font-weight: 200;
-          color: #eee6dc;
+          color: rgba(255,255,255,0.08);
           line-height: 1;
           letter-spacing: -0.04em;
-          margin-bottom: 0.25rem;
+          margin-bottom: -0.5rem;
+          user-select: none;
+        }
+
+        .nf-divider {
+          width: 40px;
+          height: 1.5px;
+          background: rgba(246,212,123,0.6);
+          margin: 0 auto 1.5rem;
+        }
+
+        .nf-label {
+          display: block;
+          color: rgba(255,255,255,0.55);
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          margin-bottom: 0.75rem;
         }
 
         .nf-title {
-          font-size: 1.45rem;
+          color: rgba(255,255,255,0.95);
+          font-size: clamp(1.6rem, 5vw, 2.4rem);
           font-weight: 300;
-          color: #1a1a1a;
-          line-height: 1.2;
-          margin-bottom: 0.4rem;
-        }
-
-        .nf-subtitle {
-          font-size: 0.82rem;
-          color: #aaa;
-          font-weight: 500;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-          margin-bottom: 1.8rem;
+          line-height: 1.15;
+          letter-spacing: -0.01em;
+          margin-bottom: 1rem;
         }
 
         .nf-lead {
-          color: #777;
-          font-size: 0.8rem;
-          line-height: 1.7;
+          color: rgba(255,255,255,0.55);
+          font-size: 0.82rem;
+          line-height: 1.75;
           font-weight: 500;
-          margin-bottom: 2.1rem;
+          margin-bottom: 2.5rem;
         }
 
         .nf-actions {
           display: flex;
           flex-direction: column;
           gap: 0.75rem;
-          width: 100%;
+          align-items: center;
+        }
+
+        @media (min-width: 420px) {
+          .nf-actions {
+            flex-direction: row;
+            justify-content: center;
+          }
         }
 
         .nf-btn {
-          width: 100%;
+          min-width: 160px;
           min-height: 46px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
           gap: 0.5rem;
           border-radius: 6px;
-          padding: 0.9rem 1rem;
+          padding: 0.85rem 1.4rem;
           border: none;
           background: #582739;
           color: #fff7c2;
           font-family: 'Montserrat', sans-serif;
-          font-size: 0.86rem;
+          font-size: 0.82rem;
           font-weight: 700;
           letter-spacing: 0.08em;
           text-transform: uppercase;
@@ -168,58 +148,42 @@ const NotFoundPage = () => {
         }
 
         .nf-btn svg {
-          width: 16px;
-          height: 16px;
+          width: 15px;
+          height: 15px;
         }
 
         .nf-btn:hover {
           background: #f6d47b;
           color: #4d2030;
-          transform: translateY(-1px);
+          transform: translateY(-2px);
         }
 
-        .nf-btn-outline {
+        .nf-btn-ghost {
           background: transparent;
-          border: 1.5px solid #e5e5e5;
-          color: #555;
+          border: 1.5px solid rgba(255,255,255,0.22);
+          color: rgba(255,255,255,0.75);
         }
 
-        .nf-btn-outline:hover {
-          background: transparent;
-          border-color: #ccc;
-          color: #1a1a1a;
-          transform: translateY(-1px);
-        }
-
-        @media (max-width: 520px) {
-          .nf-right {
-            padding: 2.5rem 1.5rem;
-          }
-
-          .nf-title {
-            font-size: 1.35rem;
-          }
+        .nf-btn-ghost:hover {
+          background: rgba(255,255,255,0.08);
+          border-color: rgba(255,255,255,0.45);
+          color: #fff;
+          transform: translateY(-2px);
         }
       `}</style>
 
-      <main className="nf-root">
-        <div className="nf-left">
-          <div className="nf-left-content">
-            <span className="nf-left-label">ISKCON Hazaribag</span>
-            <h2 className="nf-left-title">Sri Sri Radha Madhava Temple</h2>
-          </div>
-        </div>
-
-        <section className="nf-right" aria-labelledby="nf-title">
+      <main className="nf-root" aria-labelledby="nf-title">
+        <div className="nf-inner">
           <img src="/images/logo-black-header.png" alt="ISKCON" className="nf-logo" />
 
           <p className="nf-code" aria-hidden="true">404</p>
-          <h1 className="nf-title" id="nf-title">Page Not Found</h1>
-          <p className="nf-subtitle">Sri Sri Radha Madhava Temple</p>
+          <div className="nf-divider" />
 
+          <span className="nf-label">ISKCON Hazaribag</span>
+          <h1 className="nf-title" id="nf-title">Page Not Found</h1>
           <p className="nf-lead">
-            The page you are looking for may have been moved, renamed, or does not exist.
-            Please return home or go back to continue browsing.
+            The page you're looking for may have been moved or doesn't exist.<br />
+            Return home or go back to continue.
           </p>
 
           <div className="nf-actions">
@@ -227,12 +191,12 @@ const NotFoundPage = () => {
               <Home aria-hidden="true" />
               Back to Home
             </Link>
-            <button type="button" onClick={() => navigate(-1)} className="nf-btn nf-btn-outline">
+            <button type="button" onClick={() => navigate(-1)} className="nf-btn nf-btn-ghost">
               <ArrowLeft aria-hidden="true" />
               Go Back
             </button>
           </div>
-        </section>
+        </div>
       </main>
     </>
   );
