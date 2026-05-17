@@ -4,16 +4,16 @@ import Footer from '../components/footer';
 
 const weeklyPrograms = [
   {
-    name: ‘Sunday Youth Program’,
-    day: ‘Every Sunday · 5:00 PM’,
-    desc: ‘A grand evening of kirtan, scriptural discourse and a sumptuous vegetarian prasadam feast. Open to all.’,
-    image: ‘/images/srichaitanya001901.jpg’,
+    name: 'Sunday Youth Program',
+    day: 'Every Sunday · 5:00 PM',
+    desc: 'A grand evening of kirtan, scriptural discourse and a sumptuous vegetarian prasadam feast. Open to all.',
+    image: '/images/srichaitanya001901.jpg',
   },
   {
-    name: ‘Estri Village Program’,
-    day: ‘Weekday Evenings’,
-    desc: ‘Small group spiritual gatherings hosted in devotees’ homes across Hazaribag for study, kirtan and association.’,
-    image: ‘/images/rath_yatra.png’,
+    name: 'Estri Village Program',
+    day: 'Weekday Evenings',
+    desc: "Small group spiritual gatherings hosted in devotees' homes across Hazaribag for study, kirtan and association.",
+    image: '/images/rath_yatra.png',
   },
 ];
 
