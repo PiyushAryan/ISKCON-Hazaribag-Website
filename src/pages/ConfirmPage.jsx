@@ -27,7 +27,8 @@ const ConfirmPage = () => {
 
   const details = [
     ['Reference No.', paymentId],
-    ...(wants80G ? [['Certificate No.', certNumber]] : []),
+    ...(wants80G ? [[
+      'Certificate No.', certNumber]] : []),
     ['Payment Status', status],
   ];
 

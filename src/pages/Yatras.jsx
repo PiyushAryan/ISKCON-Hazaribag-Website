@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import YatrasComponent from '../components/Yatras';
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
+import YatrasComponent from '../components/yatras';
 
 const YatrasPage = () => {
   useEffect(() => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const programs = [
   {
@@ -128,7 +129,7 @@ const LiveDarshan = () => {
             ))}
           </div>
 
-          <a className="pdf-center-btn" href="#footer">All Regular Programs</a>
+          <Link className="pdf-center-btn" to="/regular-programs">All Regular Programs</Link>
         </div>
       </section>
     </>

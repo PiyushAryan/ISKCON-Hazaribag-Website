@@ -169,7 +169,7 @@ const Festivals = () => {
             ))}
           </div>
 
-          <Link className="pdf-center-btn" to="/checkout">Explore Events</Link>
+          <Link className="pdf-center-btn" to="/events-festivals">Explore Events</Link>
         </div>
       </section>
     </>

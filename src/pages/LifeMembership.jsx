@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 import { Link } from 'react-router-dom';
 
 const LifeMembership = () => {

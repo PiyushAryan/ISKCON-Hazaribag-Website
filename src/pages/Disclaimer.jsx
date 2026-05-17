@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import LegalPage from '../components/LegalPage';
+import LegalPage from '../components/legal-page';
 
 const Disclaimer = () => {
   useEffect(() => {

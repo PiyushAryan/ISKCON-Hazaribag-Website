@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Chronicle from './components/Chronicle';
-import Teachings from './components/Teachings';
-import Festivals from './components/Festivals';
-import LiveDarshan from './components/LiveDarshan';
-import Donation from './components/Donation';
-import Footer from './components/Footer';
+import Navbar from './components/navbar';
+import Hero from './components/hero';
+import Chronicle from './components/chronicle';
+import Teachings from './components/teachings';
+import Festivals from './components/festivals';
+import LiveDarshan from './components/live-darshan';
+import Donation from './components/donation';
+import Footer from './components/footer';
 
 import CheckoutPage from './pages/CheckoutPage';
 import ConfirmPage from './pages/ConfirmPage';
@@ -20,8 +20,10 @@ import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
 import LifeMembership from './pages/LifeMembership';
 import NotFoundPage from './pages/NotFoundPage';
+import RegularPrograms from './pages/RegularPrograms';
+import EventsFestivals from './pages/EventsFestivals';
 
-import FloatingMenu from './components/FloatingMenu';
+import FloatingMenu from './components/floating-menu';
 
 // Main homepage assembled from all sections
 function HomePage() {
@@ -69,6 +71,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/life-membership" element={<LifeMembership />} />
+        <Route path="/regular-programs" element={<RegularPrograms />} />
+        <Route path="/events-festivals" element={<EventsFestivals />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <FloatingMenu />

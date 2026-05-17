@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 import { motion } from "motion/react";
 import { animate } from "motion";
 import {
